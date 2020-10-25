@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>adDev - admin</title>
+    <title>azOneDev - admin</title>
 
     @yield('admin.partials.extra-css')
 

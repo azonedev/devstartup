@@ -13,7 +13,7 @@
 					  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					  <a href="#departments" onclick="closeNav()">Departments</a>
 					  <a href="#about-company" onclick="closeNav()">About Company</a>
-					  <a href="#how-we-work" onclick="closeNav()">How We Work</a>
+					  {{-- <a href="#how-we-work" onclick="closeNav()">How We Work</a> --}}
 					  <a href="#our-solutions" onclick="closeNav()">Our Solutions</a>
 					  <a href="#team" onclick="closeNav()">Our Team</a>
 					  <a href="#technologies" onclick="closeNav()">Technologies</a>

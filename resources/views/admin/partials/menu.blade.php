@@ -1,6 +1,6 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" title="adDev is a azOneDev product" href="#">adDev</a>
+            <a class="navbar-brand" title="adDev is a azOneDev product" href="#">azOneDev</a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -105,6 +105,29 @@
                     <li>
                         <a href="#"><i class="fa fa-sliders"></i> Page Settings <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#"><i class="fa fa-home"></i> Home <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                         <a href="#"><i class="fa fa-home"></i> Slider </a>
+                                    </li>
+                                    <li>
+                                         <a href="#"><i class="fa fa-home"></i> Departments </a>
+                                    </li>
+                                    <li>
+                                         <a href="#"><i class="fa fa-home"></i> About Company </a>
+                                    </li>
+                                    <li>
+                                         <a href="#"><i class="fa fa-home"></i> Solutions </a>
+                                    </li>
+                                    <li>
+                                         <a href="#"><i class="fa fa-home"></i> Team </a>
+                                    </li>
+                                    <li>
+                                         <a href="#"><i class="fa fa-home"></i> Technologies </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li>
                                 <a href="{{url('admin/about-us')}}"><i class="fa fa-address-card"></i> About-us</a>
                             </li>
