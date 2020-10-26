@@ -28,12 +28,16 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/home/slider/update/{id}',"admin\homepage\SliderController@update");
         Route::post('/home/slider/archrive/{id}',"admin\homepage\SliderController@destroy");
 
-        // home - slider
+        // home - department
         Route::get('/home/dept',"admin\homepage\DepartmentController@index");
         Route::post('/home/dept/store',"admin\homepage\DepartmentController@store");
         Route::post('/home/dept/edit/{id}',"admin\homepage\DepartmentController@edit");
         Route::post('/home/dept/update/{id}',"admin\homepage\DepartmentController@update");
         Route::post('/home/dept/archrive/{id}',"admin\homepage\DepartmentController@destroy");
+
+        // home - aboutcompany
+        Route::get('/home/about',"admin\homepage\AboutController@index");
+        Route::post('/home/about/update/{id}',"admin\homepage\AboutController@update");
 
 });
 
