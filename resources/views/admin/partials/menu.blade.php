@@ -109,8 +109,9 @@
                                 <a href="#"><i class="fa fa-home"></i> Home <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                         <a href="#"><i class="fa fa-home"></i> Slider </a>
+                                        <a href="{{url('/admin/home/slider')}}">Slider</a>
                                     </li>
+                            
                                     <li>
                                          <a href="#"><i class="fa fa-home"></i> Departments </a>
                                     </li>

@@ -19,6 +19,12 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
 
     Route::get('/',"admin\AdminController@index");
 
+    // page settings
+
+        // home - slider
+        Route::get('/home/slider',"admin\homepage\SliderController@index");
+        Route::post('/home/slider/store',"admin\homepage\SliderController@store");
+
 });
 
 // --------------
