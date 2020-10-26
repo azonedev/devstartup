@@ -59,38 +59,57 @@ class SliderController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit($id,Request $r)
     {
-        //
+        $sliderData = DB::SELECT('SELECT * FROM slider');
+        $singleData = DB::SELECT('select * from slider where id=?',[$id]);
+        return view('admin.pages.Home-slider-edit',
+            [
+                'sliderData'=>$sliderData,
+                'singleData' => $singleData
+            ]    
+        );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+  
+    public function update(Request $r, $id)
     {
-        //
-    }
+        $title = $r->input('title');
+        $description = $r->input('description');
+        $link = $r->input('link');
+        $btn = $r->input('btn-name');
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        $image = $r->file('image');
+        if($image !=NULL){
+            // image 
+            $image_name =  time() . '.' . $image->getClientOriginalExtension(); //file name
+            $path = public_path('assets/app-images'); //store path
+            $image->move($path,$image_name); //file store 
+            $img = 'assets/app-images/'.$image_name; //save on DB
+        }else{
+            $img = $r->input('prev-img');
+        }
+
+        DB::update('update slider
+            set 
+                title = ?,
+                description = ?,
+                link = ?,
+                btn = ?,
+                img = ?
+            where id = ?',
+            [
+                $title,
+                $description,
+                $link,
+                $btn,
+                $img,
+                $id
+            ]
+        );
+        Session::flash('msg','Slider updated successfully !');
+        
+        return redirect('/admin/home/slider');
     }
 
     /**

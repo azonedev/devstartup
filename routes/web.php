@@ -24,6 +24,8 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         // home - slider
         Route::get('/home/slider',"admin\homepage\SliderController@index");
         Route::post('/home/slider/store',"admin\homepage\SliderController@store");
+        Route::post('/home/slider/edit/{id}',"admin\homepage\SliderController@edit");
+        Route::post('/home/slider/update/{id}',"admin\homepage\SliderController@update");
 
 });
 
