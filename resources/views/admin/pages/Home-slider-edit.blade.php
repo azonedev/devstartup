@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="title">Update Picture</label>
-                        <input type="file" class="form-control" name="image" required>
+                        <input type="file" class="form-control" name="image">
                     </div>
                 </div>
 

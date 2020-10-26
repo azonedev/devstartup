@@ -78,7 +78,7 @@ class SliderController extends Controller
         $description = $r->input('description');
         $link = $r->input('link');
         $btn = $r->input('btn-name');
-
+        $status = $r->input('status');
         $image = $r->file('image');
         if($image !=NULL){
             // image 
@@ -96,7 +96,8 @@ class SliderController extends Controller
                 description = ?,
                 link = ?,
                 btn = ?,
-                img = ?
+                img = ?,
+                status = ?
             where id = ?',
             [
                 $title,
@@ -104,6 +105,7 @@ class SliderController extends Controller
                 $link,
                 $btn,
                 $img,
+                $status,
                 $id
             ]
         );
