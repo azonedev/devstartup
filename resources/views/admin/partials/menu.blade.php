@@ -109,11 +109,11 @@
                                 <a href="#"><i class="fa fa-home"></i> Home <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="{{url('/admin/home/slider')}}">Slider</a>
+                                        <a href="{{url('/admin/home/slider')}}"><i class="fa fa-home"></i> Slider</a>
                                     </li>
                             
                                     <li>
-                                         <a href="#"><i class="fa fa-home"></i> Departments </a>
+                                         <a href="{{url('/admin/home/dept')}}"><i class="fa fa-home"></i> Departments </a>
                                     </li>
                                     <li>
                                          <a href="#"><i class="fa fa-home"></i> About Company </a>

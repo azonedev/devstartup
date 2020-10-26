@@ -1,0 +1,59 @@
+[33mcommit c678e4e0c9b228c773abc564f9fcd6d2b536ffbf[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Mon Oct 26 16:25:30 2020 +0600
+
+    slider archrived option added
+
+[33mcommit 86d881f613c75c647c3868555dc05d22192d46d3[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Mon Oct 26 16:18:46 2020 +0600
+
+    2 issue fix on slider system [edit & update] status update and remove image required
+
+[33mcommit bc17dc77c9479e38d2595ad09da9551e1a46c7dd[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Mon Oct 26 16:13:12 2020 +0600
+
+    edit and update on slider system
+
+[33mcommit 943daabb6152749a9dc9d9991564879bf3a66e5c[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Mon Oct 26 13:50:30 2020 +0600
+
+    Show all slider on admin panel datatable
+
+[33mcommit 9bb1d498a2f12d1e95620cb13a4adc90a15bdc12[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Mon Oct 26 13:19:58 2020 +0600
+
+    Slider created for frontend homepage  and insert data system ready
+
+[33mcommit b6058b9c3b5d1db6d1d29becb83900ddb5278241[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Sun Oct 25 18:48:27 2020 +0600
+
+    menu blade updated
+
+[33mcommit 4f6a4d0c49df92864d27c8663f9a689fd9129079[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Sun Oct 25 17:19:07 2020 +0600
+
+    Frontend homepage created extends from frontend master
+
+[33mcommit 3033ea13d623859c6022fc94023dd969187156ca[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Sun Oct 25 17:01:49 2020 +0600
+
+    Created frontend master template and partials
+
+[33mcommit 4d31b9ce622a0140d2acb2b848d487cf40107753[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Sun Oct 25 16:40:44 2020 +0600
+
+    Frontend home page template added
+
+[33mcommit 4357b11ab19714ca7488549e12c3206d1688cad9[m
+Author: Abdullah Al Mamun <abdullah914115@gmail.com>
+Date:   Sun Oct 25 15:37:07 2020 +0600
+
+    added admin for devstartup
