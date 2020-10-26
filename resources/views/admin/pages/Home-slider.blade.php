@@ -67,15 +67,33 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @php
+                                                    $i = 0;
+                                                @endphp
+                                                @foreach ($sliderData as $item)
                                                 <tr>
-                                                    <td>KHTML</td>
-                                                    <td>Konqureror 3.5</td>
-                                                    <td>KDE 3.5</td>
-                                                    <td class="center">3.5</td>
-                                                    <td class="center">A</td>
-                                                    <td class="center">A</td>
-                                                    <td class="center">A</td>
+                                                    <td>{{$i+=1}}</td>
+                                                    <td>{{$item->title}}</td>
+                                                    <td>{{$item->description}}</td>
+                                                    <td class="center">
+                                                        <img src='{{asset("$item->img")}}' width="80px" alt="">
+                                                    </td>
+                                                    <td class="center">
+                                                        @if ($item->status=="active")
+                                                            <p class="btn btn-success">Active</p>
+                                                        @else 
+                                                            <p class="btn btn-danger">Archrived</p> 
+                                                        @endif
+                                                    </td>
+                                                    <td class="center">
+                                                        <button type="button" class="btn btn-secodary btn-circle btn-lg"><i class="fa fa-edit"></i></button>
+                                                    </td>
+                                                    <td class="center">
+                                                        <button type="button" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-archive"></i></button>
+                                                    </td>
                                                 </tr>
+                                                <div class="p-2"></div>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

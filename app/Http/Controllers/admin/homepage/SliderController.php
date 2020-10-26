@@ -11,7 +11,12 @@ class SliderController extends Controller
 
     public function index()
     {
-        return view('admin.pages.Home-slider');
+        $sliderData = DB::SELECT('SELECT * FROM slider');
+        return view('admin.pages.Home-slider',
+            [
+                'sliderData'=>$sliderData
+            ]    
+        );
     }
 
     public function store(Request $r)
