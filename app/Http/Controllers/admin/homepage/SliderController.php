@@ -114,14 +114,14 @@ class SliderController extends Controller
         return redirect('/admin/home/slider');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
-        //
+        
+        DB::update('update slider set status = "archrived" where id = ?', [$id]);
+        
+        Session::flash('msg','Slider archrived successfully !');
+        
+        return redirect('/admin/home/slider');
     }
 }

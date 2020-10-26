@@ -95,7 +95,7 @@
                                                     <td class="center">
                                                         <form action="{{url('admin/home/slider/archrive')}}/{{$item->id}}" method="post">
                                                             @csrf
-                                                            <button type="button" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-archive"></i></button>
+                                                            <button type="submit" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-archive"></i></button>
                                                         </form>                                                            
                                                     </td>
                                                 </tr>

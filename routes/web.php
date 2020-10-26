@@ -26,6 +26,7 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/home/slider/store',"admin\homepage\SliderController@store");
         Route::post('/home/slider/edit/{id}',"admin\homepage\SliderController@edit");
         Route::post('/home/slider/update/{id}',"admin\homepage\SliderController@update");
+        Route::post('/home/slider/archrive/{id}',"admin\homepage\SliderController@destroy");
 
 });
 
