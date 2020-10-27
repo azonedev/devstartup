@@ -39,6 +39,13 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::get('/home/about',"admin\homepage\AboutController@index");
         Route::post('/home/about/update/{id}',"admin\homepage\AboutController@update");
 
+        // home - solution
+        Route::get('/home/solution',"admin\homepage\SolutionController@index");
+        Route::post('/home/solution/store',"admin\homepage\SolutionController@store");
+        Route::post('/home/solution/edit/{id}',"admin\homepage\SolutionController@edit");
+        Route::post('/home/solution/update/{id}',"admin\homepage\SolutionController@update");
+        Route::post('/home/solution/archrive/{id}',"admin\homepage\SolutionController@destroy");
+
 });
 
 // --------------
