@@ -53,12 +53,12 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/home/team/update/{id}',"admin\homepage\TeamController@update");
         Route::post('/home/team/archrive/{id}',"admin\homepage\TeamController@destroy");
 
-        // home - technology
-        Route::get('/home/team',"admin\homepage\TeamController@index");
-        Route::post('/home/team/store',"admin\homepage\TeamController@store");
-        Route::post('/home/team/edit/{id}',"admin\homepage\TeamController@edit");
-        Route::post('/home/team/update/{id}',"admin\homepage\TeamController@update");
-        Route::post('/home/team/archrive/{id}',"admin\homepage\TeamController@destroy");
+        // home - TechnologyController
+        Route::get('/home/technology',"admin\homepage\Technology@index");
+        Route::post('/home/technology/store',"admin\homepage\Technology@store");
+        Route::post('/home/technology/edit/{id}',"admin\homepage\Technology@edit");
+        Route::post('/home/technology/update/{id}',"admin\homepage\Technology@update");
+        Route::post('/home/technology/archrive/{id}',"admin\homepage\Technology@destroy");
 
 });
 

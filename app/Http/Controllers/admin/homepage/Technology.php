@@ -25,11 +25,6 @@ class Technology extends Controller
         $technology = [];
 
         $technology['name'] = $r->input('name');
-        $technology['title'] = $r->input('title');
-        $technology['facebook'] = $r->input('facebook');
-        $technology['linkedin'] = $r->input('linkedin');
-        $technology['twitter'] = $r->input('twitter');
-        $technology['contact'] = $r->input('contact');
 
         $image = $r->file('image');
 
@@ -64,11 +59,6 @@ class Technology extends Controller
         $technology = [];
 
         $technology['name'] = $r->input('name');
-        $technology['title'] = $r->input('title');
-        $technology['facebook'] = $r->input('facebook');
-        $technology['linkedin'] = $r->input('linkedin');
-        $technology['twitter'] = $r->input('twitter');
-        $technology['contact'] = $r->input('contact');
 
         $image = $r->file('image');
 
@@ -81,8 +71,7 @@ class Technology extends Controller
         }else{
             $technology['img'] = $r->input('prev-img');
         }
-
-
+        
         $technology['status'] = $r->input('status');
 
         DB::table('technology')
