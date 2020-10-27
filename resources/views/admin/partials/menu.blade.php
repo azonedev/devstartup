@@ -122,7 +122,7 @@
                                          <a href="{{url('/admin/home/solution')}}"><i class="fa fa-home"></i> Solutions </a>
                                     </li>
                                     <li>
-                                         <a href="#"><i class="fa fa-home"></i> Team </a>
+                                         <a href="{{url('/admin/home/team')}}"><i class="fa fa-home"></i> Team </a>
                                     </li>
                                     <li>
                                          <a href="#"><i class="fa fa-home"></i> Technologies </a>
