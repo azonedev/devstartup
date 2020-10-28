@@ -12,6 +12,7 @@ class HomeController extends Controller
     {
         $setting = DB::SELECT('SELECT * FROM setting');
 
+        $department = DB::SELECT('SELECT * FROM department');
         $about = DB::SELECT('SELECT * FROM about');
         $solution = DB::SELECT('SELECT * FROM solution');
         $team = DB::SELECT('SELECT * FROM team');
@@ -20,6 +21,7 @@ class HomeController extends Controller
             [
                 'setting' =>$setting,
 
+                'department' =>$department,
                 'about' =>$about,
                 'solution' =>$solution,
                 'team' =>$team,
