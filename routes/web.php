@@ -60,6 +60,11 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/home/technology/update/{id}',"admin\homepage\Technology@update");
         Route::post('/home/technology/archrive/{id}',"admin\homepage\Technology@destroy");
 
+        
+        // settings 
+        Route::get('/setting',"admin\SettingController@edit");
+        Route::post('/setting/update/{id}',"admin\SettingController@update");
+
 });
 
 // --------------
