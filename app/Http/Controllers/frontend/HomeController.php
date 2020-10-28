@@ -12,13 +12,15 @@ class HomeController extends Controller
     {
         $setting = DB::SELECT('SELECT * FROM setting');
 
+        $about = DB::SELECT('SELECT * FROM about');
         $solution = DB::SELECT('SELECT * FROM solution');
         $team = DB::SELECT('SELECT * FROM team');
         $tech = DB::SELECT('SELECT * FROM technology');
         return view('frontend.Home',
             [
                 'setting' =>$setting,
-                
+
+                'about' =>$about,
                 'solution' =>$solution,
                 'team' =>$team,
                 'tech' =>$tech,
