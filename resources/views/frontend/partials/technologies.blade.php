@@ -9,10 +9,12 @@
 			
 			<div class="row text-center">
 				@foreach ($tech as $item)
-					<div class="col-6 col-lg-2 col-md-2 col-sm-4 p-1">
-						<img src='{{asset("$item->img")}}' width="100px" alt="">
-						<p>{{$item->name}}</p>
-					</div>
+					@if ($item->status=="active")
+						<div class="col-6 col-lg-2 col-md-2 col-sm-4 p-1">
+							<img src='{{asset("$item->img")}}' width="100px" alt="">
+							<p>{{$item->name}}</p>
+						</div>
+					@endif
 				@endforeach
 			</div>
 			<div class="p-3"></div>
