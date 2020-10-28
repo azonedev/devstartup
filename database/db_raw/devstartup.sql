@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2020 at 04:19 AM
+-- Generation Time: Oct 28, 2020 at 06:10 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -67,6 +67,42 @@ CREATE TABLE `department` (
 
 INSERT INTO `department` (`id`, `title`, `description`, `img`, `btn`, `link`, `status`) VALUES
 (1, 'Developement .', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus architecto similique nulla quis tempore repellendus voluptatibus saepe quidem laboriosam excepturi rerum eveniet modi sint magni id, nihil. Saepe, veritatis, debitis.', 'assets/app-images/1603711812.svg', 'Get In Touch', '#', 'active');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setting`
+--
+
+CREATE TABLE `setting` (
+  `id` int(11) NOT NULL,
+  `logo` varchar(100) NOT NULL,
+  `logo_text` varchar(100) NOT NULL,
+  `moto` varchar(300) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `google_map` varchar(300) NOT NULL,
+  `mail` varchar(100) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `fb` varchar(100) NOT NULL,
+  `tw` varchar(100) NOT NULL,
+  `ln` varchar(100) NOT NULL,
+  `call_dev` varchar(20) NOT NULL,
+  `call_train` varchar(20) NOT NULL,
+  `call_services` varchar(20) NOT NULL,
+  `call_center` varchar(20) NOT NULL,
+  `copy_left` varchar(30) NOT NULL,
+  `copy_left_link` varchar(100) NOT NULL,
+  `copy_right` varchar(100) NOT NULL,
+  `copy_right_link` varchar(100) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`id`, `logo`, `logo_text`, `moto`, `address`, `google_map`, `mail`, `phone`, `fb`, `tw`, `ln`, `call_dev`, `call_train`, `call_services`, `call_center`, `copy_left`, `copy_left_link`, `copy_right`, `copy_right_link`, `status`) VALUES
+(1, '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#3', '#', '#', '#', 'text');
 
 -- --------------------------------------------------------
 
@@ -185,6 +221,12 @@ ALTER TABLE `department`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `slider`
 --
 ALTER TABLE `slider`
@@ -222,6 +264,12 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
