@@ -11,9 +11,12 @@ class HomeController extends Controller
     public function index()
     {
         $setting = DB::SELECT('SELECT * FROM setting');
+
+        $tech = DB::SELECT('SELECT * FROM technology');
         return view('frontend.Home',
             [
-                'setting' =>$setting
+                'setting' =>$setting,
+                'tech' =>$tech
             ]
         );
     }
