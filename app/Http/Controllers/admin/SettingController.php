@@ -41,7 +41,10 @@ class SettingController extends Controller
         $setting['copy_left_link'] = $r->input('copy_left_link');
         $setting['copy_right'] = $r->input('copy_right');
         $setting['copy_right_link'] = $r->input('copy_right_link');
-
+        $setting['event_title'] = $r->input('event_title');
+        $setting['event_link'] = $r->input('event_link');
+        $setting['status']= $r->input('status');
+        $event_image = $r->file('event_img');
         $image = $r->file('image');
 
         if($image != NULL){
@@ -53,6 +56,15 @@ class SettingController extends Controller
         }else{
             $setting['logo'] = $r->input('prev-img');
         }
+        if($event_image != NULL){
+            // image 
+            $event_image_name =  time() . '.' . $event_image->getClientOriginalExtension(); //file name
+            $path = public_path('assets/app-images'); //store path
+            $event_image->move($path,$event_image_name); //file store 
+            $setting['event_img'] = 'assets/app-images/'.$event_image_name; //save on DB
+        }else{
+            $setting['event_img'] = $r->input('prev-event');
+        }
 
         DB::table('setting')
             ->where('id',$id)
@@ -60,7 +72,7 @@ class SettingController extends Controller
 
         Session::flash('msg','setting updated successfully !');
         
-        return redirect('/admin/home/setting');
+        return redirect('/admin/setting');
     }
 
     

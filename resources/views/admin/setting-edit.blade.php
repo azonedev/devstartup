@@ -126,7 +126,25 @@
                     </div>
                 </div>
 
+                <hr>
+                
+                <div class="row form-group">
+                    <div class="col-md-6 col-sm-6">
+                        <label for="">Event Name</label>
+                        <input type="text" name="event_title" class="form-control" value="{{$item->event_title}}" required>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <label for="">Attach Event Picture</label>
+                        <input type="file" name="event_img" class="form-control" value="{{$item->event_img}}" required>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <label for="">Event link</label>
+                        <input type="text" name="event_link" class="form-control" value="{{$item->event_link}}" required>
+                    </div>
+                </div>
+
                 <input type="hidden" name="prev-img" value="{{$item->logo}}">
+                <input type="hidden" name="prev-event" value="{{$item->event_img}}">
 
 
                 <input type="submit" class="btn btn-success" value="Update">

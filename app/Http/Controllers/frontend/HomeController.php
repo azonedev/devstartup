@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\frontend;
-
+use DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,12 @@ class HomeController extends Controller
     
     public function index()
     {
-        return view('frontend.Home');
+        $setting = DB::SELECT('SELECT * FROM setting');
+        return view('frontend.Home',
+            [
+                'setting' =>$setting
+            ]
+        );
     }
 
     /**

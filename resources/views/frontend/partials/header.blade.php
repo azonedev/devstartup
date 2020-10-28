@@ -2,10 +2,15 @@
 	<div class="fluid header fixed-top" id="mian">
 		<div class="container">
 			<header>
-				<div class="logo float-left">
-					<h1>DevStartUP</h1>
-					<!-- <img src="assets/img/logo.png" alt=""> -->
-				</div>
+				<a href="{{url('/')}}">
+					<div class="logo float-left">
+						@if ($status == "text")
+							<h1>{{$logo_text}}</h1>
+						@else
+							<img src='{{asset("$logo")}}' height="90px" alt=""> 
+						@endif
+					</div>
+				</a>
 
 				<!-- menu -->
 				<menu>
