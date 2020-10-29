@@ -23,6 +23,13 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
 
     Route::get('/',"admin\AdminController@index");
 
+    // message 
+        
+        Route::get('/new-messages',"admin\MessageController@index");
+        Route::get('/message/{id}',"admin\MessageController@read");
+        Route::get('/message/update/{id}',"admin\MessageController@update");
+        Route::get('/all-messages',"admin\MessageController@create");
+
     // page settings
 
         // home - slider
