@@ -16,12 +16,22 @@
 				<menu>
 					<div id="mySidenav" class="sidenav">
 					  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					  <a href="#departments" onclick="closeNav()">Departments</a>
-					  <a href="#about-company" onclick="closeNav()">About Company</a>
-					  {{-- <a href="#how-we-work" onclick="closeNav()">How We Work</a> --}}
-					  <a href="#our-solutions" onclick="closeNav()">Our Solutions</a>
-					  <a href="#team" onclick="closeNav()">Our Team</a>
-					  <a href="#technologies" onclick="closeNav()">Technologies</a>
+					  @if (\Request::is('/'))
+						  	<a href="#departments" onclick="closeNav()">Departments</a>
+					  		<a href="#about-company" onclick="closeNav()">About Company</a>
+					  		<a href="#our-solutions" onclick="closeNav()">Our Solutions</a>
+					  		<a href="#team" onclick="closeNav()">Our Team</a>
+					  		<a href="#technologies" onclick="closeNav()">Technologies</a>
+
+						 
+					  @else
+						 	<a href="{{url('/home-single-department')}}" onclick="closeNav()">Departments</a>
+					  		<a href="{{url('/home-single-about')}}" onclick="closeNav()">About Company</a>
+							
+					  		<a href="{{url('/home-single-solution')}}" onclick="closeNav()">Our Solutions</a>
+					  		<a href="{{url('/home-single-team')}}" onclick="closeNav()">Our Team</a>
+					  		<a href="{{url('/home-single-tech')}}" onclick="closeNav()">Technologies</a>
+					  @endif
 					</div>
 					<div class="menu float-right">
 						<h3 onclick="openNav();"><!-- menu  --><i class="fa fa-bars p-1"></i></h3>

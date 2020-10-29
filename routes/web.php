@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'frontend\HomeController@index');
+Route::get('/home-single-{page}', 'frontend\HomeSingleController@index');
 
 
 // --------------
