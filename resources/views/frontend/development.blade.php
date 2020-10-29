@@ -7,7 +7,8 @@
 		<div class="container dev-form bg-white p-4">
 			<h2>Send us a inquiry</h2>
 			<div class="p-2"></div>
-			<form action="success.html">
+            <form action="{{url('/dept/development/save')}}" method="POST">
+                @csrf
 				<div class="form-group">
 					<div class="row">
 						<div class="col-md-4 col-sm-4">
@@ -40,7 +41,7 @@
 				<hr style="border:1px solid var(--two)">
 				<div class="form-group">
 					<label for="details">Project feature & description </label>
-					<textarea name="details" id="" width="100%" cols="30" rows="10"></textarea>
+					<textarea name="details" id="" width="100%" cols="30" rows="10" required>Write here you requirements</textarea>
 				</div>
 				<div class="form-group">
 				    <div class="form-check">

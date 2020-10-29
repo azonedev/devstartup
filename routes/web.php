@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'frontend\HomeController@index');
 Route::get('/home-single-{page}', 'frontend\HomeSingleController@index');
 Route::get('/dept/development', 'frontend\DevelopmentController@index');
+Route::post('/dept/development/save', 'frontend\DevelopmentController@store');
 
 
 
