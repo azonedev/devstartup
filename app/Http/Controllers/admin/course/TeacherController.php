@@ -28,8 +28,7 @@ class TeacherController extends Controller
             $image->move($path,$image_name); //file move
             $teacher['image'] = 'assets/app-images/'.$image_name; // save db 
         }
-dd($image);
-        exit();
+
         DB::table('teacher')->insert($teacher);
         Session::flash('msg','New teacher added successfully');
 
