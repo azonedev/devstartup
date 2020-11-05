@@ -75,27 +75,13 @@
                     </li>
                     
                     <li>
-                        <a href="#"><i class="fa fa-envelope"></i> Messages <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-envelope"></i> Client Messages <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{url('admin/new-messages')}}"><i class="fa fa-bell"></i> New messages</a>
                             </li>
                             <li>
                                 <a href="{{url('admin/all-messages')}}"><i class="fa fa-inbox"></i> All messages</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-user"></i> User <span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="{{url('admin/admin-list')}}"><i class="fa fa-list"></i> Admin List</a>
-                            </li>
-                            <li>
-                                <a href="{{url('admin/add-new')}}"><i class="fa fa-plus"></i> Admin Add</a>
-                            </li>
-                            <li>
-                                <a href="{{url('admin/user-list')}}"><i class="fa fa-user"></i> Customers</a>
                             </li>
                         </ul>
                     </li>
@@ -134,6 +120,23 @@
                             </li>
                             <li>
                                 <a href="{{url('admin/terms')}}"><i class="fa fa-user-secret"></i> Terms & condition</a>
+                            </li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="{{url('admin/teacher')}}"><i class="fa fa-list-alt"></i>  Teacher</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-user"></i> User <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="{{url('admin/admin-list')}}"><i class="fa fa-list"></i> Admin List</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/add-new')}}"><i class="fa fa-plus"></i> Admin Add</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/user-list')}}"><i class="fa fa-user"></i> Customers</a>
                             </li>
                         </ul>
                     </li>

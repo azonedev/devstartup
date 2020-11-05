@@ -41,7 +41,7 @@
 				<hr style="border:1px solid var(--two)">
 				<div class="form-group">
 					<label for="details">Project feature & description </label>
-					<textarea name="details" id="" width="100%" cols="30" rows="10" required>Write here you requirements</textarea>
+					<textarea name="details" id="" width="100%" cols="30" rows="10" required>Write here your   requirements</textarea>
 				</div>
 				<div class="form-group">
 				    <div class="form-check">
