@@ -87,6 +87,16 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/course/edit/{id}','admin\course\AddCourseController@edit');
         Route::post('/course/update/{id}','admin\course\AddCourseController@update');
         Route::post('/course/archrive/{id}','admin\course\AddCourseController@destroy');
+
+        // add course outline
+
+        Route::get('/outline','admin\course\OutlineController@index');
+        Route::post('/outline/store/','admin\course\OutlineController@store');
+        Route::post('/outline/edit/{id}','admin\course\OutlineController@edit');
+        Route::put('/outline/update/{id}','admin\course\OutlineController@update');
+        Route::post('/outline/archrive/{id}','admin\course\OutlineController@destroy');
+
+        // 
         
         // settings 
         Route::get('/setting',"admin\SettingController@edit");

@@ -154,12 +154,9 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @php
-                                                    $i = 0;
-                                                @endphp
                                                 @foreach ($courseData as $item)
                                                 <tr>
-                                                    <td>{{$i+=1}}</td>
+                                                    <td>{{$item->id}}</td>
                                                     <td>{{$item->name}}</td>
                                                     <td class="center">
                                                        {{$item->course_fee}}
