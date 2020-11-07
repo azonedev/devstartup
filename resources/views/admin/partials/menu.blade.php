@@ -132,6 +132,9 @@
                      <li>
                         <a href="{{url('admin/outline')}}"><i class="fa fa-list-alt"></i> Add Course outline</a>
                     </li>
+                     <li>
+                        <a href="{{url('admin/server')}}"><i class="fa fa-server"></i> Server</a>
+                    </li>
                     <li>
                         <a href="#"><i class="fa fa-user"></i> User <span class="fa arrow"></span></a>
                         <ul class="nav nav-third-level">

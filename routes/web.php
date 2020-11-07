@@ -96,7 +96,13 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::put('/outline/update/{id}','admin\course\OutlineController@update');
         Route::post('/outline/archrive/{id}','admin\course\OutlineController@destroy');
 
-        // 
+        // Domain & Hosting
+
+        Route::get('/server','admin\DomainHostingController@index');
+        Route::post('/server/store/','admin\DomainHostingController@store');
+        Route::post('/server/edit/{id}','admin\DomainHostingController@edit');
+        Route::post('/server/update/{id}','admin\DomainHostingController@update');
+        Route::post('/server/archrive/{id}','admin\DomainHostingController@destroy');
         
         // settings 
         Route::get('/setting',"admin\SettingController@edit");
