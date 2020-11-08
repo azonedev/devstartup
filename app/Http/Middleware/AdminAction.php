@@ -15,10 +15,10 @@ class AdminAction
      */
     public function handle($request, Closure $next)
     {
-        // test purpose
-        Session::put('usermail','test');
-        Session::put('role','admin');
-        //delete this
+        // // test purpose
+        // Session::put('usermail','test');
+        // Session::put('role','admin');
+        // //delete this
 
         $usermail = Session('usermail');
         $role = Session('role');

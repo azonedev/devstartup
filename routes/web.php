@@ -104,6 +104,17 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/server/update/{id}','admin\DomainHostingController@update');
         Route::post('/server/archrive/{id}','admin\DomainHostingController@destroy');
         
+        // user [admin-list]
+        Route::get('/admin-list',"admin\AdminUserShow@index");
+        Route::get('/admin-list/delete/{id}',"admin\AdminUserShow@destroy");
+
+        // user [admin-add]
+        Route::get('/add-new',"admin\AdminUserShow@create");
+        Route::post('/add-new/update/{id}',"admin\AdminUserShow@update");
+        
+        // user [normal-user-list]
+        Route::get('/user-list',"admin\AdminUserShow@show");
+
         // settings 
         Route::get('/setting',"admin\SettingController@edit");
         Route::post('/setting/update/{id}',"admin\SettingController@update");
@@ -116,12 +127,12 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
 
 // user login & reg
 
-Route::get('/register',"user\UserController@index");
-Route::post('/register/save',"user\UserController@store");
+Route::get('/register',"user\GeneralUser@index");
+Route::post('/register/save',"user\GeneralUser@store");
 
-Route::get('/login/{url?}',"user\UserController@showLogin");
-Route::post('/login/match',"user\UserController@matchLogin");
-Route::get('/logout',"user\UserController@logout");
+Route::get('/login/{url?}',"user\GeneralUser@showLogin");
+Route::post('/login/match',"user\GeneralUser@matchLogin");
+Route::get('/logout',"user\GeneralUser@logout");
                                                                                         
 // all-user-action
 
