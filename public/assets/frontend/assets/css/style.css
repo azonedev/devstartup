@@ -60,8 +60,9 @@ body {
 
 h1,
 h2,
-h3 {
-    font-family: var(--font-primary);
+h3,p,div,span {
+    font-family: 'Hind Siliguri',
+    sans-serif;
 }
 
 .text-cont {
@@ -246,6 +247,36 @@ header {
     height: 100vh;
 }
 
+.slick-slide img {
+    display: block;
+    max-height: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    .slider{
+        padding-top:25px;
+    }
+    .slider-h1{
+        font-size: 26px;
+    }
+}
+@media screen and (max-width: 577px) {
+    .slider-half{
+        display: none;
+    }
+   .slider-full{
+    display: block !important;
+   }
+   .slider-text{
+    padding:20px;
+   }
+   .slick-slide img{
+    height: 200px;
+   }
+   .slider-h1{
+        font-size: 18px;
+    }
+}
 /*-------
 	slider
 -------*/

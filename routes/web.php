@@ -116,12 +116,12 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
 
 // user login & reg
 
-// Route::get('/register',"user\UserController@index");
-// Route::post('/register/save',"user\UserController@store");
+Route::get('/register',"user\UserController@index");
+Route::post('/register/save',"user\UserController@store");
 
-// Route::get('/login/{url?}',"user\UserController@showLogin");
-// Route::post('/login/match',"user\UserController@matchLogin");
-// Route::get('/logout',"user\UserController@logout");
+Route::get('/login/{url?}',"user\UserController@showLogin");
+Route::post('/login/match',"user\UserController@matchLogin");
+Route::get('/logout',"user\UserController@logout");
                                                                                         
 // all-user-action
 

@@ -135,7 +135,7 @@
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Attach Event Picture</label>
-                        <input type="file" name="event_img" class="form-control" value="{{$item->event_img}}" required>
+                        <input type="file" name="event_img" class="form-control" value="{{$item->event_img}}">
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Event link</label>

@@ -19,7 +19,8 @@
 							<div class="p-3"></div>
 							<p class="sub-head">{{$item->title}}</p>
 							<div class="p-3"></div>
-							<p class="text-cont">{{$item->description}}</p>
+							<p style="font-family: 'Hind Siliguri',
+    sans-serif;" class="text-cont">{{$item->description}}</p>
 							<div class="p-3"></div>
 							<a href="{{$item->link}}">
 								<button class="btn secondary-btn">{{$item->btn}}</button>
@@ -38,7 +39,8 @@
 							<div class="p-3"></div>
 							<p class="sub-head">{{$item->title}}</p>
 							<div class="p-3"></div>
-							<p class="text-cont">{{$item->description}}</p>
+							<p style="font-family: 'Hind Siliguri',
+    sans-serif;" class="text-cont" class="text-cont">{{$item->description}}</p>
 							<div class="p-3"></div>
 							<a href="{{$item->link}}">
 								<button class="btn secondary-btn">{{$item->btn}}</button>

@@ -5,11 +5,15 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- google fonts -->
-	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400&family=Indie+Flower&family=Teko:wght@300;500&display=swap" rel="stylesheet">
+	{{-- <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400&family=Indie+Flower&family=Teko:wght@300;500&display=swap" rel="stylesheet"> --}}
+
+	<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 	<!-- custom internal css to get value of variables if need-->
 	<style>
-		
+		body{
+			font-family: 'Hind Siliguri', sans-serif !important;
+		}
 	</style>
 
     @yield('extra-css')

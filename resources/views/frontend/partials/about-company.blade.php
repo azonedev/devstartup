@@ -10,13 +10,13 @@
 				<div class="p-4"></div>
 				
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-6 p-3">
 						<img src='{{asset("$item->img")}}'width="100%" alt="">
 					</div>
-					<div class="col-md-6 p-3">
-						<div class="p-3"></div>
-						<p class="text-cont">{{$item->description}}</p>
-						<div class="p-3"></div>
+					<div class="col-md-6 p-2">
+						<p class="text-cont" style="font-family: 'Hind Siliguri',
+    sans-serif;" class="text-cont">{!!$item->description!!}</p>
+						<div class="p-2"></div>
 						<a href="{{$item->link}}">
 						<button class="btn primary-btn">{{$item->btn}}</button>
 						</a>
