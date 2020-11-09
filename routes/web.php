@@ -21,7 +21,7 @@ Route::post('/enroll-save', 'frontend\CourseController@enrollSave');
 Route::get('/details-course-{id}', 'frontend\CourseController@details');
 
 // doamin&hosting
-
+Route::get('/domain-hosting','frontend\ServiceController@index');
 
 
 // --------------
