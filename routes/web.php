@@ -13,6 +13,15 @@ Route::get('/home-single-{page}', 'frontend\HomeSingleController@index');
 Route::get('/dept/development', 'frontend\DevelopmentController@index');
 Route::post('/dept/development/save', 'frontend\DevelopmentController@store');
 
+// frontend - course
+
+Route::get('/all-course', 'frontend\CourseController@index');
+Route::get('/enroll-course-{id}', 'frontend\CourseController@enroll');
+Route::post('/enroll-save', 'frontend\CourseController@enrollSave');
+Route::get('/details-course-{id}', 'frontend\CourseController@details');
+
+// doamin&hosting
+
 
 
 // --------------

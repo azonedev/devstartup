@@ -46,7 +46,9 @@
                                                         </p>
                                                     </td>
                                                     <td class="center">
-                                                          <button type="button" class="btn btn-success btn-circle btn-lg"><i class="fa fa-link"></i></button>                  
+                                                          <a href="{{url('admin/message/')}}/{{$item->id}}">
+                                                            <button type="button" class="btn btn-success btn-circle btn-lg"><i class="fa fa-link"></i></button>       
+                                                        </a>                 
                                                     </td>
                                                 </tr>
                                                 <div class="p-2"></div>

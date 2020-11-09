@@ -328,3 +328,99 @@ button.slick-prev.slick-arrow {
 .success-page {
     box-shadow: rgba(0, 0, 0, 0.17) 0px 4px 9px 0px;
 }
+
+/*----------
+    course page
+-----------*/
+
+/*course-box*/
+
+.course-box{
+    margin: 0 auto;
+    /*box-shadow: rgb(26 115 232) 0px 4px 9px 0px;*/
+    box-shadow: rgba(0, 0, 0, 0.17) 0px 4px 9px 0px;
+    border:1px solid var(--blue);
+    border-radius:8px;
+    padding: 10px 10px;
+    background:var(--white);
+}
+.course-box:hover {
+    box-shadow: rgb(0 0 0 / 59%) 0px -1px 15px 0px;
+}
+
+/*---------
+    course details page
+----------*/
+
+.header-body{
+    border-radius: 12px;
+}
+
+.small-bg-right{
+    width: 85px;
+    height: 60px;
+    /*background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%231a73e8' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");*/
+background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%231a73e8' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    float: right;
+    margin-top: -100px;
+}
+
+
+
+/*---------
+    outline-page css
+----------*/
+
+.outline-box{
+    margin: 0 auto;
+    /*box-shadow: rgb(26 115 232) 0px 4px 9px 0px;*/
+    box-shadow: rgba(0, 0, 0, 0.17) 0px 4px 9px 0px;
+    border:1px solid var(--blue);
+    border-radius:8px;
+    padding: 10px 10px;
+    background: var(--white);
+    max-height: 310px;
+    overflow-y: auto;
+}
+
+
+
+
+/*---------
+    services-page css
+----------*/
+
+
+.services{
+    margin:0px;
+    padding: 0px;
+    padding:10px 0px;
+}
+
+.services h1{
+    padding: 5px 0px;
+    background: var(--two);
+    color: var(--white);
+}
+.fa-check,.fa-check-square-o{
+    color:#FF2E8C;
+}
+.services .feature{
+
+    padding: 10px 0px 10px 35px;
+
+}
+
+/*---------
+    product / solution css
+----------*/
+
+.solution-header{
+    border-radius: 12px;
+    width: 100%;
+    height: 520px;
+}
+
+.solution-feature{
+    padding-left: 20px;
+}

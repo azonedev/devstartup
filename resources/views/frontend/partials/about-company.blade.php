@@ -12,6 +12,35 @@
 				<div class="row">
 					<div class="col-md-6 p-3">
 						<img src='{{asset("$item->img")}}'width="100%" alt="">
+						{{-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+								<img class="d-block w-100" src='{{asset("$item->img")}}' alt="First slide">
+								  	<div class="carousel-caption d-none d-md-block">
+										<h5>About</h5>
+										<p>hi</p>
+									</div>
+								</div>
+								<div class="carousel-item">
+								<img class="d-block w-100" src='{{asset("$item->img")}}' alt="Second slide">
+										<div class="carousel-caption d-none d-md-block">
+										<h5>About company</h5>
+										<p>hi</p>
+									</div>
+								</div>
+								<div class="carousel-item">
+								<img class="d-block w-100" src='{{asset("$item->img")}}' alt="Third slide">
+								</div>
+							</div>
+							<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div> --}}
 					</div>
 					<div class="col-md-6 p-2">
 						<p class="text-cont" style="font-family: 'Hind Siliguri',
