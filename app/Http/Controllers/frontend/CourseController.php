@@ -17,6 +17,8 @@ class CourseController extends Controller
             ]);
     }
 
+    
+
     public function enroll($id){
         $setting = DB::SELECT('SELECT * FROM setting');
         $allCourse = DB::table('course')
@@ -78,7 +80,9 @@ class CourseController extends Controller
 
     public function details($id){
         $setting = DB::SELECT('SELECT * FROM setting');
-        $allCourse = DB::table('course')->get();
+        $allCourse = DB::table('course')
+            ->where('id',$id)
+            ->get();
         $course_outline = DB::table('course_outline')
             ->where('course_id',$id)
             ->get();
@@ -90,4 +94,6 @@ class CourseController extends Controller
 
             ]);
     }
+
+
 }
