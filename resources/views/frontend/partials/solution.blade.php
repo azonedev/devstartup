@@ -14,7 +14,7 @@
 					@if ($item->status=="active")
 						<div class="col-md-3 col-sm-6 p-4">
 							<div class="box">
-								<a href="{{url('/solution')}}/{{$item->name}}">
+								<a href="{{url('/solution')}}/{{$item->name}}-{{$item->id}}">
 									<img src='{{asset("$item->img")}}' alt="erp by azonedev" width="100%" height="170px" class="p-4">
 									<div class="p-2">{{$item->name}}</div>
 								</a>

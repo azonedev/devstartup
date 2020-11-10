@@ -31,7 +31,7 @@
                         @endfor
 					</div>
 					<div class="orderm text-center">
-						<a href="{{$item->btn_link}}" target="_blank">
+						<a href="https://mamu756807.supersite2.srsportal.com/" target="_blank">
 							<button class="btn secondary-btn">Order Now</button>
 						</a>
 						<div class="p-2"></div>

@@ -55,7 +55,34 @@
 							 	<a href="#how-we-work"><p>How We Work</p></a>
 							 	<a href="#our-solutions"><p>Our Solutions</p></a>
 							 	<a href="#team"><p>Our Team</p></a>
-							 	<a href="#technologies"><p>Technologies</p></a>
+								<a href="#technologies"><p>Technologies</p></a>
+								
+								
+								<a href="" data-toggle="modal" data-target="#exampleModal"><p>Check / Download Certificate</p></a>
+
+								<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Download / Check Certificate</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<form action="/check-mjcid" method="GET">
+									<div class="modal-body">
+										<input type="text" placeholder="Enter your MJCSN ID ex : 65181589562" name="cer_id" class="form-control">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+										<button type="submit" class="btn btn-primary">Find</button>
+									</div>
+									</form>
+									</div>
+								</div>
+								</div>
+
 							</div>			
 							<div class="col-md-4 col-sm-6">
                                 <h2>{{$event_title}}</h2>

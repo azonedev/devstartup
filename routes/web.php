@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 // --------------
 // Frontend
 // --------------
@@ -23,6 +22,12 @@ Route::get('/details-course-{id}', 'frontend\CourseController@details');
 // doamin&hosting
 Route::get('/domain-hosting','frontend\ServiceController@index');
 
+// solution 
+Route::get('/solution/{name}-{id}','frontend\SolutionController@index');
+
+// check certificate
+Route::get('/check-mjcid/','frontend\CerController@index');
+Route::get('/check-mjcid/view','frontend\CerController@view');
 
 // --------------
 // Admin
@@ -104,6 +109,14 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/outline/edit/{id}','admin\course\OutlineController@edit');
         Route::put('/outline/update/{id}','admin\course\OutlineController@update');
         Route::post('/outline/archrive/{id}','admin\course\OutlineController@destroy');
+
+        // certifiate management
+
+        Route::get('/cer','admin\certificate@index');
+        Route::post('/cer/store/','admin\certificate@store');
+        Route::post('/cer/edit/{id}','admin\certificate@edit');
+        Route::put('/cer/update/{id}','admin\certificate@update');
+        Route::post('/cer/archrive/{id}','admin\certificate@destroy');
 
         // Domain & Hosting
 

@@ -73,7 +73,7 @@ class AddCourseController extends Controller
             $image->move($path,$image_name); //file move
             $course['feature_image'] = 'assets/app-images/'.$image_name; // save db 
         }else{
-            $course['feature_image'] = $r->file('prev_img');
+            $course['feature_image'] = $r->input('prev_img');
         }
 
         $course['lession'] = $r->input('lession');

@@ -75,7 +75,7 @@
                     </li>
                     
                     <li>
-                        <a href="#"><i class="fa fa-envelope"></i> Client Messages <span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-first-order"></i> Order Management <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{url('admin/new-messages')}}"><i class="fa fa-bell"></i> New messages</a>
@@ -86,7 +86,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{url('admin/section-settings')}}"><i class="fa fa-list-alt"></i>  Section Settings</a>
+                        <a href="{{url('#')}}"><i class="fa fa-list-alt"></i>  Section Settings</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sliders"></i> Page Settings <span class="fa arrow"></span></a>
@@ -116,10 +116,10 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="{{url('admin/about-us')}}"><i class="fa fa-address-card"></i> About-us</a>
+                                <a href="{{url('#')}}"><i class="fa fa-address-card"></i> About-us</a>
                             </li>
                             <li>
-                                <a href="{{url('admin/terms')}}"><i class="fa fa-user-secret"></i> Terms & condition</a>
+                                <a href="{{url('#')}}"><i class="fa fa-user-secret"></i> Terms & condition</a>
                             </li>
                         </ul>
                     </li>
@@ -131,6 +131,12 @@
                     </li>
                      <li>
                         <a href="{{url('admin/outline')}}"><i class="fa fa-list-alt"></i> Add Course outline</a>
+                    </li>
+                     <li>
+                        <a href="{{url('#')}}"><i class="fa fa-graduation-cap"></i> Student Management</a>
+                    </li>
+                     <li>
+                        <a href="{{url('admin/cer')}}"><i class="fa fa-certificate"></i> Verify Certificate</a>
                     </li>
                      <li>
                         <a href="{{url('admin/server')}}"><i class="fa fa-server"></i> Server</a>
@@ -154,12 +160,16 @@
                        
                     </li>
                     <li>
-                        <a href="{{url('/admin/export-data')}}"><i class="fa fa-file-excel-o"></i> Export data</a>
+                        <a href="{{url('#')}}"><i class="fa fa-cogs"></i> Site SEO</a>
+                       
+                    </li>
+                    <li>
+                        <a href="{{url('/admin/export-data')}}"><i class="fa fa-file-excel-o"></i> Export & Import</a>
                        
                     </li>
 
 
-                    <li>
+                    {{-- <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -174,7 +184,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
 
             </div>
