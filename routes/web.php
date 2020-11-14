@@ -29,6 +29,8 @@ Route::get('/solution/{name}-{id}','frontend\SolutionController@index');
 Route::get('/check-mjcid/','frontend\CerController@index');
 Route::get('/check-mjcid/view','frontend\CerController@view');
 
+
+
 // --------------
 // Admin
 // --------------
@@ -110,8 +112,23 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::put('/outline/update/{id}','admin\course\OutlineController@update');
         Route::post('/outline/archrive/{id}','admin\course\OutlineController@destroy');
 
-        // certifiate management
+        // video
+        
+        //video-category
+        Route::get('/video-category','admin\VideoController@indexCat');
+        Route::post('/video-category/store','admin\VideoController@storeCat');
+        Route::post('/video-category/edit/{id}','admin\VideoController@editCat');
+        Route::post('/video-category/update/{id}','admin\VideoController@updateCat');
+        Route::post('/video-category/archrive/{id}','admin\VideoController@destroyCat');
 
+        //video-lession
+        Route::get('/video-lession','admin\VideoController@index');
+        Route::post('/video-lession/store','admin\VideoController@store');
+        Route::post('/video-lession/edit/{id}','admin\VideoController@edit');
+        Route::post('/video-lession/update/{id}','admin\VideoController@update');
+        Route::post('/video-lession/archrive/{id}','admin\VideoController@destroy');
+
+        // certifiate management
         Route::get('/cer','admin\certificate@index');
         Route::post('/cer/store/','admin\certificate@store');
         Route::post('/cer/edit/{id}','admin\certificate@edit');

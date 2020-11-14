@@ -9,9 +9,9 @@
 
     <title>azOneDev - admin</title>
 
-    @yield('admin.partials.extra-css')
-
+    
     @include('admin.partials.css-links')
+    @yield('extra-css')
 </head>
 <body>
 

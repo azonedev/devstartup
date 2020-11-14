@@ -130,7 +130,18 @@
                         <a href="{{url('admin/course')}}"><i class="fa fa-list-alt"></i> Add Course</a>
                     </li>
                      <li>
-                        <a href="{{url('admin/outline')}}"><i class="fa fa-list-alt"></i> Add Course outline</a>
+                        <a href="#"><i class="fa fa-video-camera"></i> Video Lession <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="{{url('admin/video-category')}}"><i class="fa fa-list"></i> Add category</a>
+                            </li>
+                            <li>
+                                <a href="{{url('admin/video-lession')}}"><i class="fa fa-plus"></i> Add lession</a>
+                            </li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="{{url('admin/outline')}}"><i class="fa fa-list-alt"></i> Video</a>
                     </li>
                      <li>
                         <a href="{{url('#')}}"><i class="fa fa-graduation-cap"></i> Student Management</a>
