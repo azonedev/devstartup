@@ -48,7 +48,7 @@ class VideoController extends Controller
 
     // video-lession
     function index(){
-         $videolession = DB::table('video_lession')->get();
+        $videolession = DB::table('video_lession')->get();
         $videoCategory = DB::table('video_category')->get();
         return view('admin.video.lession',['videolession'=>$videolession,'video_cat'=>$videoCategory]);
     }
@@ -98,5 +98,24 @@ class VideoController extends Controller
             ->delete();
         Session::flash('msg', "Delete success !");
         return redirect()->back();
+    }
+
+
+
+    // Frontend
+    function videoLession(){
+        $setting = DB::table('setting')->get();
+        $videoCategory = DB::table('video_category')->get();
+
+        return view('frontend.All-lession',['setting'=>$setting,'videoCategory'=>$videoCategory]);
+    }
+
+    function videoLessionSingle($name,$id){
+        $setting = DB::table('setting')->get();
+        $videolession = DB::table('video_lession')
+            ->where('video_cat_id',$id)
+            ->get();
+
+        return view('frontend.Lession',['setting'=>$setting,'videolession'=>$videolession,'name'=>$name]);
     }
 }

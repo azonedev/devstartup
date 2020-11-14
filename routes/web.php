@@ -29,7 +29,9 @@ Route::get('/solution/{name}-{id}','frontend\SolutionController@index');
 Route::get('/check-mjcid/','frontend\CerController@index');
 Route::get('/check-mjcid/view','frontend\CerController@view');
 
-
+// video lession
+route::get('/video-lession','admin\VideoController@videoLession');
+route::get('/video-lession/{name}-{id}','admin\VideoController@videoLessionSingle');
 
 // --------------
 // Admin
