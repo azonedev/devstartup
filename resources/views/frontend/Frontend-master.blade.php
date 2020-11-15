@@ -9,7 +9,7 @@
     @include('frontend.partials.css-links')
 
 </head>
-<body onclick="closeNav()">
+<body>
     {{-- retrive setting data --}}
     @foreach ($setting as $item)
         @php

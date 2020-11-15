@@ -31,6 +31,16 @@
                     </div>
                    
                 </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Title</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">alt</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
                 <hr>
         
                 <input type="submit" class="btn btn-success" value="Save">
