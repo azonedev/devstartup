@@ -34,14 +34,23 @@
                 <hr>
                 <div class="row">
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" name="title" required>
                     </div>
 
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                     <label for="title">Alt</label>
                     <input type="text" class="form-control" name="alt" required>
+                    </div>
+
+                    <div class="col-md-4">
+                    <label for="title">Course</label>
+                        <select name="course_id" class="form-control" id="">
+                            @foreach ($course as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                    
                 </div>
@@ -71,6 +80,7 @@
                                                     <th>#</th>
                                                     <th>Thumbnail</th>
                                                     <th>Category ID</th>
+                                                    <th>Course ID</th>
                                                     {{-- <th>Edit</th> --}}
                                                     <th>Delete</th>
                                                 </tr>
@@ -85,6 +95,7 @@
                                                         </a>
                                                     </td>
                                                     <td>{{$item->video_cat_id}}</td>
+                                                    <td>{{$item->course_id}}</td>
                                                     
                                                     {{-- <td class="center">
                                                         <form action="{{url('admin/video-lession/edit')}}/{{$item->id}}" method="post">

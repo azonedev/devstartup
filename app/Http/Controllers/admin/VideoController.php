@@ -50,7 +50,8 @@ class VideoController extends Controller
     function index(){
         $videolession = DB::table('video_lession')->get();
         $videoCategory = DB::table('video_category')->get();
-        return view('admin.video.lession',['videolession'=>$videolession,'video_cat'=>$videoCategory]);
+        $course = DB::table('course')->get();
+        return view('admin.video.lession',['videolession'=>$videolession,'video_cat'=>$videoCategory,'course'=>$course]);
     }
 
     function store(Request $r){
@@ -60,6 +61,7 @@ class VideoController extends Controller
         $lession['video_cat_id'] = $r->input('video_cat_id');
         $lession['title'] = $r->input('title');
         $lession['alt'] = $r->input('alt');
+        $lession['course_id'] = $r->input('course_id');
         $file = $r->file('thumbnail');
 
         $image_name = time().'.'.$file->getClientOriginalExtension();
