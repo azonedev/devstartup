@@ -31,15 +31,19 @@
                     </div>
                    
                 </div>
+                <hr>
                 <div class="row">
-                    <div class="col-6">
-                        <label for="">Title</label>
-                        <input type="text" class="form-control">
+
+                    <div class="col-md-6">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" name="title" required>
                     </div>
-                    <div class="col-6">
-                        <label for="">alt</label>
-                        <input type="text" class="form-control">
+
+                    <div class="col-md-6">
+                    <label for="title">Alt</label>
+                    <input type="text" class="form-control" name="alt" required>
                     </div>
+                   
                 </div>
                 <hr>
         

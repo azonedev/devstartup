@@ -55,8 +55,11 @@ class VideoController extends Controller
 
     function store(Request $r){
         $lession = [];
+        
         $lession['link'] = $r->input('link');
         $lession['video_cat_id'] = $r->input('video_cat_id');
+        $lession['title'] = $r->input('title');
+        $lession['alt'] = $r->input('alt');
         $file = $r->file('thumbnail');
 
         $image_name = time().'.'.$file->getClientOriginalExtension();
