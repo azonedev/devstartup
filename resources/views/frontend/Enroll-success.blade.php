@@ -7,9 +7,12 @@
 						<article class="contact">
 							<h3 class="text-center">Waiting for conformation or contact ...</h3>
 							<div class="p-2"></div>
-							<p>Developer team : <a href="tel:+012 345 678">+012 345 678</a></p>
-							<p>Support : <a href="tel:+012 345 678">+012 345 678</a></p>
-							<p>Admin : <a href="tel:+012 345 678">+012 345 678</a></p>
+							@foreach ($setting as $item)
+								
+							<p>Developer team : <a href="tel:+012 345 678">{{$item->call_dev}}</a></p>
+							<p>Support : <a href="tel:+012 345 678">{{$item->call_train}}</a></p>
+							<p>Admin : <a href="tel:+012 345 678">{{$item->call_center}}</a></p>
+							@endforeach
 						</article>
 						<div class="p-3"></div>
 

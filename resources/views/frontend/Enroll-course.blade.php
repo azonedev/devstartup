@@ -47,7 +47,7 @@
                             <option value="cash_on">Cash on</option>
                         </select>
                     </div>
-                    <input type="hidden" name="course_name" value="coursename">
+                    <input type="hidden" name="course_name" value="{{$coursename}}">
                     
                     <div class="form-group p-2">
                         <input type="text" name="ammount" class="form-control" value="{{$ammount}}">

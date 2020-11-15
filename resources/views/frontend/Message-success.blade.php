@@ -9,9 +9,13 @@
 						<article class="contact">
 							<h2 class="text-center">Next step contact to ...</h2>
 							<div class="p-2"></div>
-							<p>Developer team : <a href="tel:+012 345 678">+012 345 678</a></p>
-							<p>Support : <a href="tel:+012 345 678">+012 345 678</a></p>
-							<p>Admin : <a href="tel:+012 345 678">+012 345 678</a></p>
+							@foreach ($setting as $item)
+								
+							<p>Developer team : <a href="tel:+012 345 678">{{$item->call_dev}}</a></p>
+							<p>Support : <a href="tel:+012 345 678">{{$item->call_services}}</a></p>
+							<p>Admin : <a href="tel:+012 345 678">{{$item->call_center}}</a></p>
+							@endforeach
+
 						</article>
 						<div class="p-3"></div>
 
