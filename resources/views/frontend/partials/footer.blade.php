@@ -48,7 +48,7 @@
 							</div>			
 							<div class="col-md-4 col-sm-6">
 								<h2>Quick Link </h2>
-								<a href="#"><p>Admission</p></a>
+								
 								<a href="#departments"><p>Departments</p></a>
 								<a href="#"><p>Training</p></a>
 							 	<a href="#about-company"><p>About Company</p></a>
@@ -56,6 +56,8 @@
 							 	<a href="#our-solutions"><p>Our Solutions</p></a>
 							 	<a href="#team"><p>Our Team</p></a>
 								<a href="#technologies"><p>Technologies</p></a>
+
+								<a href="{{url('/video-lession')}}"><p>Our Free Lession</p></a>
 								
 								
 								<a href="" data-toggle="modal" data-target="#exampleModal"><p>Check / Download Certificate</p></a>
