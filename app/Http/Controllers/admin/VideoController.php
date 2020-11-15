@@ -61,7 +61,7 @@ class VideoController extends Controller
         $lession['video_cat_id'] = $r->input('video_cat_id');
         $lession['title'] = $r->input('title');
         $lession['alt'] = $r->input('alt');
-        $lession['course_id'] = $r->input('course_id');
+        $lession['course_id'] = json_encode($r->input('course_id'));
         $file = $r->file('thumbnail');
 
         $image_name = time().'.'.$file->getClientOriginalExtension();

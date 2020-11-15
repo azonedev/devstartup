@@ -45,10 +45,10 @@
                     </div>
 
                     <div class="col-md-4">
-                    <label for="title">Course</label>
-                        <select name="course_id" class="form-control" id="">
+                    <label for="title">Course <small>To select multiple use ctrl+click</small> </label>
+                        <select name="course_id[]" class="form-control" id="course_id"   multiple>
                             @foreach ($course as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                <option style="padding:8px;" value="{{$item->id}}">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
