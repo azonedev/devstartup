@@ -148,6 +148,9 @@
                         <a href="{{url('#')}}"><i class="fa fa-graduation-cap"></i> Student Management</a>
                     </li>
                      <li>
+                        <a href="{{url('admin/blog')}}"><i class="fa fa-newspaper-o"></i> Blog</a>
+                    </li>
+                     <li>
                         <a href="{{url('admin/cer')}}"><i class="fa fa-certificate"></i> Verify Certificate</a>
                     </li>
                      <li>

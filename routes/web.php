@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 // Frontend
 // --------------
 
-
 Route::get('/', 'frontend\HomeController@index');
 Route::get('/home-single-{page}', 'frontend\HomeSingleController@index');
 Route::get('/dept/development', 'frontend\DevelopmentController@index');
@@ -129,6 +128,14 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/video-lession/edit/{id}','admin\VideoController@edit');
         Route::post('/video-lession/update/{id}','admin\VideoController@update');
         Route::post('/video-lession/archrive/{id}','admin\VideoController@destroy');
+
+        // student-management
+
+
+
+        // blog post
+        Route::get('/blog','admin\BlogController@index');
+
 
         // certifiate management
         Route::get('/cer','admin\certificate@index');

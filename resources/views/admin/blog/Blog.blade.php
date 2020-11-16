@@ -1,0 +1,236 @@
+@extends('admin.admin-master')
+
+@section('page-title','Blog')
+
+@section('main-content')
+    <div class="panel panel-primary ">
+        <div class="panel-heading">Post an article on blog</div> 
+        <div class="panel-body">
+            <form role="form" action="{{url('admin/blog/store')}}" method="POST" enctype="multipart/form-data">
+                
+                @csrf
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="title" placeholder="Blog Title" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-sm-6">
+                        <label for="">Feature Image</label>
+                        <input type="file" class="form-control" name="feature_image" required>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <label for="">Post By :</label>
+                        <input type="text" class="form-control" name="post_by" placeholder="Ex : azOneDev" required>
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <label for="">Category   </label>
+                        <select name="cat_id" id="" class="form-control">
+                            @foreach ($blog_cat as $item)
+                                <option value="{{$item->id}}">{{$item->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-1">
+                        <br>
+                        <button type="button" title="Add category" class="btn btn-success" data-toggle="modal" data-target="#addcat"><i class="fa fa-plus fa-2x"></i></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="Details">Blog</label>
+                    <textarea name="blog" class="form-control" id="" cols="30" rows="10" required></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="alt" placeholder="Enter image alt text" required>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <input type="text" class="form-control" name="tag" placeholder="Tags notice : separate every tag by coma(,)" required>
+                    </div>
+                </div>
+
+                <hr>
+
+                <input type="submit" class="btn btn-success" value="Post on blog">
+
+            </form>
+        </div>
+    </div>
+
+    {{-- end of form --}}
+<hr>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Blog category
+            </div>
+            <div class="panel-body">
+               <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#allcat">
+                      <i class="fa fa-list"></i>  Category List
+                </button>
+
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addcat">
+                      <i class="fa fa-plus "></i> Add new category
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="allcat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">Category Name</th>
+                                <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($blog_cat as $item)
+                                <tr>
+                                    <td scope="row">{{$item->name}}</td>
+                                    <td><button class="btn btn-danger" onclick='del(<?php echo $item->id;?>);'><i class="fa fa-remove fa-2x"></i></button> </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                            </table>    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="addcat" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add new category</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <input type="text" class="form-control" placeholder="Enter a category" id="name">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" onclick="save()" class="btn btn-primary">Save </button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                All article on your web blog 
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="dataTables-example">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Blog Title</th>
+                            <th>Feature Image</th>
+                            <th>Post by</th>
+                            <th>Visitor</th>
+                            <th>Post at</th>
+                            <th>Eidt</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                                            <tbody>
+                                                @php
+                                                    $i = 0;
+                                                @endphp
+                                                @foreach ($blog as $item)
+                                                <tr>
+                                                    <td>{{$i+=1}}</td>
+                                                    <td>{{$item->name}}</td>
+                                                    <td>{{$item->blog_title}}</td>
+                                                    <td class="center">
+                                                        <img src='{{asset("$item->img")}}' width="80px" alt="">
+                                                    </td>
+                                                    <td class="center">
+                                                        <img src='{{asset("$item->blog_img")}}' width="80px" alt="">
+                                                    </td>
+                                                    <td class="center">
+                                                        @if ($item->status=="active")
+                                                            <p class="btn btn-success">Active</p>
+                                                        @else 
+                                                            <p class="btn btn-danger">Archrived</p> 
+                                                        @endif
+                                                    </td>
+                                                    <td class="center">
+                                                        <form action="{{url('admin/home/solution/edit')}}/{{$item->id}}" method="post">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-secodary btn-circle btn-lg"><i class="fa fa-edit"></i></button>
+                                                        </form>
+                                                    
+                                                    </td>
+                                                    <td class="center">
+                                                        <form action="{{url('admin/home/solution/archrive')}}/{{$item->id}}" method="post">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-archive"></i></button>
+                                                        </form>                                                            
+                                                    </td>
+                                                </tr>
+                                                <div class="p-2"></div>
+                                                @endforeach
+                                            </tbody>
+                    </table>
+                </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+@endsection
+
+@section('extra-js')
+    <!-- DataTables JavaScript -->
+    <script src="{{asset('assets/admin/js/dataTables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/admin/js/dataTables/dataTables.bootstrap.min.js')}}"></script>
+    <script>
+            $(document).ready(function() {
+                $('#dataTables-example').DataTable({
+                        responsive: true
+                });
+            });
+        </script>
+    
+    <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>
+
+	<script>
+      CKEDITOR.replace('blog');
+    </script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+    </script>
+
+@endsection
