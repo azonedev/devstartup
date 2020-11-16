@@ -23,24 +23,65 @@ class BlogController extends Controller
 
     function store(Request $r){
         $blog = [];
-        // $blog['title'] = 
-        // $blog['post_by'] = 
-        // $blog['post_at'] = 
+        $blog['title'] = $r->input('title');
+        $blog['post_by'] = $r->input('post_by');
+        $blog['cat_id'] = $r->input('cat_id');
+        $blog['post_at'] = date('Y-m-d');
+        $blog['blog'] = $r->input('blog');
+        $blog['tag'] = $r->input('tag');
+        $blog['alt'] = $r->input('alt');
+
+        $image = $r->file('feature_image');
+        // image 
+        $image_name =  time() . '.' . $image->getClientOriginalExtension(); //file name
+        $path = public_path('assets/app-images'); //store path
+        $image->move($path,$image_name); //file store 
+        $blog['feature_image'] = 'assets/app-images/'.$image_name; //save on DB
+
+        DB::table('blog')->insert($blog);
+
+        Session::flash('msg','Insert successfully !');
+        return redirect('admin/blog');
     }
 
     function edit($id){
         $blog = DB::table('blog')->get();
+        $blogSingle = DB::table('blog')->where('id',$id)->get();
         $blog_cat = DB::table('blog_category')->get();
         return view('admin.blog.Edit-blog',
             [
                 'blog' =>$blog,
-                'blog_cat' =>$blog_cat
+                'blog_cat' =>$blog_cat,
+                'blogSingle' =>$blogSingle
             ]    
         );
     }
 
     function update(Request $r,$id){
+        $blog = [];
+        $blog['title'] = $r->input('title');
+        $blog['post_by'] = $r->input('post_by');
+        $blog['cat_id'] = $r->input('cat_id');
+        $blog['post_at'] = date('Y-m-d');
+        $blog['blog'] = $r->input('blog');
+        $blog['tag'] = $r->input('tag');
+        $blog['alt'] = $r->input('alt');
 
+        $image = $r->file('feature_image');
+        if($image !=NULL){
+
+            // image 
+            $image_name =  time() . '.' . $image->getClientOriginalExtension(); //file name
+            $path = public_path('assets/app-images'); //store path
+            $image->move($path,$image_name); //file store 
+            $blog['feature_image'] = 'assets/app-images/'.$image_name; //save on DB
+        }else{
+            $blog['feature_image'] = $r->input('prev_img');
+        }
+
+        DB::table('blog')->where('id',$id)->update($blog);
+        Session::flash('msg',"Blog post updated success !");
+        return redirect('/admin/blog');
     }
 
     function destroy($id){

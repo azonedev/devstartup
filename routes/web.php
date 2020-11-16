@@ -137,7 +137,10 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
 
         // blog post
         Route::get('/blog','admin\BlogController@index');
-
+        Route::post('/blog/store','admin\BlogController@store');
+        Route::post('/blog/edit/{id}','admin\BlogController@edit');
+        Route::post('/blog/update/{id}','admin\BlogController@update');
+        Route::post('/blog/destroy/{id}','admin\BlogController@destroy');
 
         // certifiate management
         Route::get('/cer','admin\certificate@index');
