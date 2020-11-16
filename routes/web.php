@@ -167,7 +167,9 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         
         // user [normal-user-list]
         Route::get('/user-list',"admin\AdminUserShow@show");
-
+        // css 
+        route::get('/css','admin\CustomCSS@index');
+        route::post('/css/update','admin\CustomCSS@update');
         // settings 
         Route::get('/setting',"admin\SettingController@edit");
         Route::post('/setting/update/{id}',"admin\SettingController@update");

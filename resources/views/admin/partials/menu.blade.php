@@ -56,20 +56,20 @@
         </ul>
 
         <!-- Sidebar -->
-        <div class="navbar-default sidebar" role="navigation">
+        <div class="navbar-default sidebar" role="navigation" style="overflow-y: scroll;">
             <div class="sidebar-nav navbar-collapse">
 
                 <ul class="nav" id="side-menu">
-                    {{-- <li class="sidebar-search">
+                    <li class="sidebar-search">
                         <div class="input-group custom-search-form">
-                            <input type="text" class="form-control" placeholder="Search...">
+                            {{-- <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
                                     <button class="btn btn-primary" type="button">
                                         <i class="fa fa-search"></i>
                                     </button>
-                                </span>
+                                </span> --}}
                         </div>
-                    </li> --}}
+                    </li>
                     <li>
                         <a href="{{url('/admin')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -158,7 +158,7 @@
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-user"></i> User <span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
+                        <ul class="nav nav-second-level">
                             <li>
                                 <a href="{{url('admin/admin-list')}}"><i class="fa fa-list"></i> Admin List</a>
                             </li>
@@ -171,11 +171,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{url('/admin/setting')}}"><i class="fa fa-cogs"></i> Settings</a>
-                       
+                        <a href="{{url('/admin/css')}}"><i class="fa fa-plus"></i> Custom CSS</a>
                     </li>
                     <li>
-                        <a href="{{url('#')}}"><i class="fa fa-cogs"></i> Site SEO</a>
+                        <a href="{{url('/admin/setting')}}"><i class="fa fa-cogs"></i> Settings</a>
+                    </li>
+                    <li>
+                        <a href="{{url('admin/seo')}}"><i class="fa fa-cogs"></i> Site SEO</a>
                        
                     </li>
                     <li>

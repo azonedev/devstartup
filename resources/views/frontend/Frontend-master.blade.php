@@ -8,6 +8,10 @@
     
     @include('frontend.partials.css-links')
 
+    <style>
+        @include('frontend.css');
+    </style>
+
 </head>
 <body>
     {{-- retrive setting data --}}
