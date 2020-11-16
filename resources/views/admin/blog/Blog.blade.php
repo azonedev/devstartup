@@ -98,7 +98,11 @@
                                 @foreach ($blog_cat as $item)
                                 <tr>
                                     <td scope="row">{{$item->name}}</td>
-                                    <td><button class="btn btn-danger" onclick='del(<?php echo $item->id;?>);'><i class="fa fa-remove fa-2x"></i></button> </td>
+                                    <td><a href="{{url('admin/blog-cat/destroy')}}/{{$item->id}}">
+                                        <button class="btn btn-danger">
+                                            <i class="fa fa-remove fa-2x"></i>
+                                        </button>
+                                    </a></td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -121,13 +125,14 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="">
-                            <input type="text" class="form-control" placeholder="Enter a category" id="name">
+                        <form action="{{url('/admin/blog-cat/save')}}" method="POST">
+                            @csrf
+                            <input type="text" class="form-control" placeholder="Enter a category" name="catName" required>
+
+                            <hr>
+                        <button type="submit" class="btn btn-primary">Save </button>
+
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" onclick="save()" class="btn btn-primary">Save </button>
                     </div>
                     </div>
                 </div>
@@ -167,32 +172,30 @@
                                                 @foreach ($blog as $item)
                                                 <tr>
                                                     <td>{{$i+=1}}</td>
-                                                    <td>{{$item->name}}</td>
-                                                    <td>{{$item->blog_title}}</td>
+                                                    <td>{{$item->title}}</td>
                                                     <td class="center">
-                                                        <img src='{{asset("$item->img")}}' width="80px" alt="">
+                                                        <img src='{{asset("$item->feature_image")}}' width="80px" alt="">
+                                                    </td>
+                                                    <td>
+                                                        {{$item->post_by}}
+                                                    </td>
+                                                    <td>
+                                                        {{$item->visitor}}
+                                                    </td>
+                                                    <td>
+                                                        {{$item->post_at}}
                                                     </td>
                                                     <td class="center">
-                                                        <img src='{{asset("$item->blog_img")}}' width="80px" alt="">
-                                                    </td>
-                                                    <td class="center">
-                                                        @if ($item->status=="active")
-                                                            <p class="btn btn-success">Active</p>
-                                                        @else 
-                                                            <p class="btn btn-danger">Archrived</p> 
-                                                        @endif
-                                                    </td>
-                                                    <td class="center">
-                                                        <form action="{{url('admin/home/solution/edit')}}/{{$item->id}}" method="post">
+                                                        <form action="{{url('admin/blog/edit')}}/{{$item->id}}" method="post">
                                                             @csrf
                                                             <button type="submit" class="btn btn-secodary btn-circle btn-lg"><i class="fa fa-edit"></i></button>
                                                         </form>
                                                     
                                                     </td>
                                                     <td class="center">
-                                                        <form action="{{url('admin/home/solution/archrive')}}/{{$item->id}}" method="post">
+                                                        <form action="{{url('admin/blog/destroy')}}/{{$item->id}}" method="post">
                                                             @csrf
-                                                            <button type="submit" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-archive"></i></button>
+                                                            <button type="submit" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-remove"></i></button>
                                                         </form>                                                            
                                                     </td>
                                                 </tr>

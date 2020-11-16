@@ -131,7 +131,9 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
 
         // student-management
 
-
+        // blog category
+        Route::post('/blog-cat/save','admin\BlogController@catSave');
+        Route::get('/blog-cat/destroy/{id}','admin\BlogController@catDestroy');
 
         // blog post
         Route::get('/blog','admin\BlogController@index');
