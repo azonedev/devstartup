@@ -23,19 +23,27 @@ class GeneralUser extends Controller
         $mobile_no = $r->mobile_no;
         $password = $r->password;
         $url = $r->url;
-
+        $img = $r->img;
+        if($img !=NULL){
+            $image_name = time().'.'.$img->getClientOriginalExtension();
+            $path = public_path('/asstes/app-images');
+            $img->move($path,$image_name);
+            $photo ='/asstes/app-images/'.$image_name;
+        }
         DB::INSERT("INSERT INTO users (
                 name,
                 email,
                 mobile_no,
-                password
+                password,
+                photo_url
             )
-            VALUES(?,?,?,?)",
+            VALUES(?,?,?,?,?)",
             [
                 $name,
                 $email,
                 $mobile_no,
-                $password
+                $password,
+                $photo
             ]
         );
         

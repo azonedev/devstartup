@@ -47,7 +47,7 @@
 							@endif
                         </div>
                         <div class="panel-body">
-							 <form action="{{url('/register/save')}}" method="post">
+							 <form action="{{url('/register/save')}}" method="post" enctype="multipart/form-data">
 								@csrf     
 								<div class="form-group">
 									<input name="name" type="text" class="form-control" placeholder="Name" required="required">
@@ -57,6 +57,9 @@
 								</div>     
 								<div class="form-group">
 									<input name="mobile_no" type="text" class="form-control" placeholder="Phone" required="required">
+								</div> 
+								<div class="form-group">
+									<input name="img" type="file" class="form-control" placeholder="Phone" required="required">
 								</div>
 								<div class="form-group">
 									<input name="password" type="password" class="form-control" placeholder="Password" required="required">

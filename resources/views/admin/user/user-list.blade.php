@@ -16,6 +16,7 @@
                                                 <tr>
                                                     <th>User ID</th>
                                                     <th>Name</th>
+                                                    <th>Profile Picture</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
                                                     <th>Action</th>
@@ -27,6 +28,7 @@
                                                         <tr>
                                                             <td>{{$item->id}}</td>
                                                             <td>{{$item->name}}</td>
+                                                            <td><img src='{{asset("$item->photo_url")}}' width="60px" alt=""></td>
                                                             <td>{{$item->email}}</td>
                                                             <td>{{$item->mobile_no}}</td>
                                                             <td>
