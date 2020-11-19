@@ -32,6 +32,13 @@ Route::get('/check-mjcid/view','frontend\CerController@view');
 route::get('/video-lession','admin\VideoController@videoLession');
 route::get('/video-lession/{name}-{id}','admin\VideoController@videoLessionSingle');
 
+// blog
+
+route::get('/blog','frontend\BlogController@index');
+route::get('/blog/{slug}-{id}','frontend\BlogController@index');
+route::get('/blog/category/{cat_name}-{cat_id}','frontend\BlogController@index');
+route::get('/blog/writer/{username}-{user_id}','frontend\BlogController@index');
+
 // --------------
 // Admin
 // --------------

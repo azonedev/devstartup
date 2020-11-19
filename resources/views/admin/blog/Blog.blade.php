@@ -13,6 +13,9 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="title" placeholder="Blog Title" required>
                 </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="slug" placeholder="Blog Slug" required>
+                </div>
                 <div class="row">
                     <div class="col-md-5 col-sm-6">
                         <label for="">Feature Image</label>
