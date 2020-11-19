@@ -13,10 +13,16 @@ class BlogController extends Controller
     function index(){
         $blog = DB::table('blog')->get();
         $blog_cat = DB::table('blog_category')->get();
+        $user = DB::table('users')->where('role','admin')->get();
+        $training = DB::table('course')->get();
+        $solution = DB::table('solution')->get();
         return view('admin.blog.Blog',
             [
                 'blog' =>$blog,
-                'blog_cat' =>$blog_cat
+                'blog_cat' =>$blog_cat,
+                'user'       =>$user,
+                'training'  =>$training,
+                'solution'  =>$solution
             ]    
         );
     }
@@ -30,6 +36,8 @@ class BlogController extends Controller
         $blog['blog'] = $r->input('blog');
         $blog['tag'] = $r->input('tag');
         $blog['alt'] = $r->input('alt');
+        $blog['training_ad'] = $r->input('training_ad');
+        $blog['solution_ad'] = $r->solution_ad;
 
         $image = $r->file('feature_image');
         // image 
@@ -48,11 +56,19 @@ class BlogController extends Controller
         $blog = DB::table('blog')->get();
         $blogSingle = DB::table('blog')->where('id',$id)->get();
         $blog_cat = DB::table('blog_category')->get();
+        $user = DB::table('users')->where('role','admin')->get();
+
+        $training = DB::table('course')->get();
+        $solution = DB::table('solution')->get();
+
         return view('admin.blog.Edit-blog',
             [
                 'blog' =>$blog,
                 'blog_cat' =>$blog_cat,
-                'blogSingle' =>$blogSingle
+                'blogSingle' =>$blogSingle,
+                'user'       =>$user,
+                'training'  =>$training,
+                'solution'  =>$solution
             ]    
         );
     }
@@ -66,6 +82,9 @@ class BlogController extends Controller
         $blog['blog'] = $r->input('blog');
         $blog['tag'] = $r->input('tag');
         $blog['alt'] = $r->input('alt');
+        
+        $blog['training_ad'] = $r->input('training_ad');
+        $blog['solution_ad'] = $r->input('solution_ad');
 
         $image = $r->file('feature_image');
         if($image !=NULL){

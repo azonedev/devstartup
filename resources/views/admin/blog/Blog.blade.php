@@ -20,13 +20,17 @@
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Post By :</label>
-                        <input type="text" class="form-control" name="post_by" placeholder="Ex : azOneDev" required>
+                        <select name="post_by" class="form-control" id="">
+                            @foreach ($user as $useritem)
+                                <option value="{{$useritem->id}}">{{$useritem->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Category   </label>
                         <select name="cat_id" id="" class="form-control">
                             @foreach ($blog_cat as $item)
-                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                <option value="{{$item->name}}">{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -50,6 +54,24 @@
                     </div>
                 </div>
 
+                <hr>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <select name="solution_ad" class="form-control" id="">
+                            @foreach ($solution as $sol)
+                            <option value="{{$sol->id}}">{{$sol->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="training_ad" class="form-control" id="">
+                            @foreach ($training as $train)
+                            <option value="{{$train->id}}">{{$train->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                
                 <hr>
 
                 <input type="submit" class="btn btn-success" value="Post on blog">

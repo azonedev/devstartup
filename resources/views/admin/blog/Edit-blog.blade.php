@@ -22,16 +22,24 @@
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Post By :</label>
-                        <input type="text" class="form-control" name="post_by" placeholder="Ex : azOneDev" value="{{$item->post_by}}" required>
+                        <select name="post_by" class="form-control" id="">
+                            @foreach ($user as $useritem)
+                                @if ($useritem->name==$item->post_by)
+                                <option value="{{$useritem->id}}">{{$useritem->name}}</option>
+                                @else
+                                <option value="{{$useritem->id}}">{{$useritem->name}}</option>
+                                @endif
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Category   </label>
                         <select name="cat_id" id="" class="form-control">
                             @foreach ($blog_cat as $itemCat)
                                 @if($item->id == $itemCat->id)
-                                    <option value="{{$itemCat->id}}">{{$itemCat->name}}</option>
+                                    <option value="{{$itemCat->name}}">{{$itemCat->name}}</option>
                                 @else
-                                    <option value="{{$itemCat->id}}">{{$itemCat->name}}</option>
+                                    <option value="{{$itemCat->name}}">{{$itemCat->name}}</option>
                                 @endif
                             @endforeach
                         </select>
@@ -56,6 +64,37 @@
                     </div>
                 </div>
 
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <select name="solution_ad" class="form-control" id="">
+                            @foreach ($solution as $sol)
+                            @if ($sol->id==$item->solution_ad)
+                            <option value="{{$sol->id}}">{{$sol->name}}</option>
+                                
+                            @else 
+
+                            <option value="{{$sol->id}}">{{$sol->name}}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="training_ad" class="form-control" id="">
+                            @foreach ($training as $train)
+                            @if ($train->id==$item->training_ad)
+                            <option value="{{$train->id}}">{{$train->name}}</option>
+                                
+                            @else 
+                            <option value="{{$train->id}}">{{$train->name}}</option>
+
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                
                 <hr>
                 <input type="hidden" value="{{$item->feature_image}}" name="prev_img">
                 <input type="submit" class="btn btn-success" value="Post on blog">
