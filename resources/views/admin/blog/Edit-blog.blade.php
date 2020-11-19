@@ -22,21 +22,14 @@
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Post By :</label>
-                        <select name="post_by" class="form-control" id="">
-                            @foreach ($user as $useritem)
-                                @if ($useritem->name==$item->post_by)
-                                <option value="{{$useritem->id}}">{{$useritem->name}}</option>
-                                @else
-                                <option value="{{$useritem->id}}">{{$useritem->name}}</option>
-                                @endif
-                            @endforeach
-                        </select>
+                         <input type="text" name="post_by" class="form-control" value="{{Session('username')}}" readonly>
+                        <input type="hidden" name="user_id" class="form-control" value="{{Session('user_id')}}">
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Category   </label>
                         <select name="cat_id" id="" class="form-control">
                             @foreach ($blog_cat as $itemCat)
-                                @if($item->id == $itemCat->id)
+                                @if($item->cat_id == $itemCat->name)
                                     <option value="{{$itemCat->name}}">{{$itemCat->name}}</option>
                                 @else
                                     <option value="{{$itemCat->name}}">{{$itemCat->name}}</option>
@@ -97,7 +90,7 @@
                 
                 <hr>
                 <input type="hidden" value="{{$item->feature_image}}" name="prev_img">
-                <input type="submit" class="btn btn-success" value="Post on blog">
+                <input type="submit" class="btn btn-success" value="Update your blog">
 
             </form>
             @endforeach
@@ -206,6 +199,7 @@
                             <th>Blog Title</th>
                             <th>Feature Image</th>
                             <th>Post by</th>
+                            <th>Category</th>
                             <th>Visitor</th>
                             <th>Post at</th>
                             <th>Eidt</th>
@@ -227,11 +221,15 @@
                                                         {{$item->post_by}}
                                                     </td>
                                                     <td>
+                                                        {{$item->cat_id}}
+                                                    </td>
+                                                    <td>
                                                         {{$item->visitor}}
                                                     </td>
                                                     <td>
                                                         {{$item->post_at}}
                                                     </td>
+                                                    @if (($item->user_id == Session('user_id')) || (Session('status')=="superadmin"))
                                                     <td class="center">
                                                         <form action="{{url('admin/blog/edit')}}/{{$item->id}}" method="post">
                                                             @csrf
@@ -242,9 +240,17 @@
                                                     <td class="center">
                                                         <form action="{{url('admin/blog/destroy')}}/{{$item->id}}" method="post">
                                                             @csrf
-                                                            <button type="submit" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-remove"></i></button>
+                                                            <button type="submit" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-remove"></i></button>
                                                         </form>                                                            
                                                     </td>
+                                                    @else 
+                                                    <td> 
+                                                        #
+                                                    </td>
+                                                    <td>
+                                                        #
+                                                    </td>
+                                                    @endif
                                                 </tr>
                                                 <div class="p-2"></div>
                                                 @endforeach

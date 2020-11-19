@@ -20,11 +20,15 @@
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Post By :</label>
-                        <select name="post_by" class="form-control" id="">
+                        <input type="text" name="post_by" class="form-control" value="{{Session('username')}}" readonly>
+                        <input type="hidden" name="user_id" class="form-control" value="{{Session('user_id')}}">
+
+                        {{-- <input type="hidden" name="post_by" {{$useritem->id}}> --}}
+                        {{-- <select name="post_by" class="form-control" id="">
                             @foreach ($user as $useritem)
                                 <option value="{{$useritem->id}}">{{$useritem->name}}</option>
                             @endforeach
-                        </select>
+                        </select> --}}
                     </div>
                     <div class="col-md-3 col-sm-3">
                         <label for="">Category   </label>
@@ -181,6 +185,7 @@
                             <th>Blog Title</th>
                             <th>Feature Image</th>
                             <th>Post by</th>
+                            <th>Category</th>
                             <th>Visitor</th>
                             <th>Post at</th>
                             <th>Eidt</th>
@@ -202,24 +207,35 @@
                                                         {{$item->post_by}}
                                                     </td>
                                                     <td>
+                                                        {{$item->cat_id}}
+                                                    </td>
+                                                    <td>
                                                         {{$item->visitor}}
                                                     </td>
                                                     <td>
                                                         {{$item->post_at}}
                                                     </td>
+                                                    @if (($item->user_id == Session('user_id')) || (Session('status')=="superadmin"))
                                                     <td class="center">
-                                                        <form action="{{url('admin/blog/edit')}}/{{$item->id}}" method="post">
-                                                            @csrf
-                                                            <button type="submit" class="btn btn-secodary btn-circle btn-lg"><i class="fa fa-edit"></i></button>
-                                                        </form>
-                                                    
+                                                            <form action="{{url('admin/blog/edit')}}/{{$item->id}}" method="post">
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-secodary btn-circle btn-lg"><i class="fa fa-edit"></i></button>
+                                                            </form>
                                                     </td>
                                                     <td class="center">
                                                         <form action="{{url('admin/blog/destroy')}}/{{$item->id}}" method="post">
                                                             @csrf
-                                                            <button type="submit" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-remove"></i></button>
-                                                        </form>                                                            
+                                                            <button type="submit" onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger btn-circle btn-lg"><i class="fa fa-remove"></i></button>
+                                                        </form>                       
                                                     </td>
+                                                    @else 
+                                                        <td>
+                                                            #
+                                                        </td>
+                                                        <td>
+                                                            #
+                                                        </td>
+                                                    @endif
                                                 </tr>
                                                 <div class="p-2"></div>
                                                 @endforeach

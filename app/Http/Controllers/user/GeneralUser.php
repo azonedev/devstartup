@@ -89,12 +89,14 @@ class GeneralUser extends Controller
                     $username = $value->name;
                     $mobile_no = $value->mobile_no;
                     $role = $value->role;
+                    $note = $value->note;
 
                     Session::put('user_id',$user_id);
                     Session::put('usermail',$usermail);
                     Session::put('username',$username);
                     Session::put('mobile_no',$mobile_no);
                     Session::put('role',$role);
+                    Session::put('status',$note);
 
                     Session::flash('msg', 'Login Success');
                     
@@ -123,6 +125,7 @@ class GeneralUser extends Controller
         Session::forget('username');
         Session::forget('mobile_no');
         Session::forget('role');
+        Session::forget('status');
 
         Session::flash('msg', 'Logout Success');
 

@@ -38,6 +38,7 @@ class BlogController extends Controller
         $blog['alt'] = $r->input('alt');
         $blog['training_ad'] = $r->input('training_ad');
         $blog['solution_ad'] = $r->solution_ad;
+        $blog['user_id'] = $r->user_id;
 
         $image = $r->file('feature_image');
         // image 
@@ -82,6 +83,8 @@ class BlogController extends Controller
         $blog['blog'] = $r->input('blog');
         $blog['tag'] = $r->input('tag');
         $blog['alt'] = $r->input('alt');
+        $blog['user_id'] = $r->user_id;
+
         
         $blog['training_ad'] = $r->input('training_ad');
         $blog['solution_ad'] = $r->input('solution_ad');
