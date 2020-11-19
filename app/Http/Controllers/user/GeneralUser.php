@@ -26,9 +26,10 @@ class GeneralUser extends Controller
         $img = $r->img;
         if($img !=NULL){
             $image_name = time().'.'.$img->getClientOriginalExtension();
-            $path = public_path('/asstes/app-images');
+            $path = public_path('asstes/app-images');
             $img->move($path,$image_name);
-            $photo ='/asstes/app-images/'.$image_name;
+            $photo ='asstes/app-images/'.$image_name;
+                    $image = $r->file('feature_image');
         }
         DB::INSERT("INSERT INTO users (
                 name,

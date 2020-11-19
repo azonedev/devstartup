@@ -12,7 +12,7 @@
 				<div class="row">
 					@foreach ($blog as $item)
                         <div class="col-lg-3 col-md-4">
-                            <a href="{{url('blog')}}/{{$item->slug}}-{{$item->id}}" style="color:#464646">
+                            <a href="{{url('blog')}}/{{$item->slug}}/{{$item->id}}" style="color:#464646">
                             <div class="box blog-box">
                                 <img src='{{asset("$item->feature_image")}}' width="100%" alt="">
                             </div>
@@ -38,7 +38,7 @@
 					<h2 class="cat-title">Categories</h2>
 
 					@foreach ($blog_cat as $item)	
-					<a href="{{url('category/blog')}}/{{$item->name}}-{{$item->id}}">
+					<a href="{{url('category/blog')}}/{{$item->name}}">
 						<p>{{$item->name}}</p>
 					</a>
 					@endforeach
