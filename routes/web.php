@@ -36,8 +36,10 @@ route::get('/video-lession/{name}-{id}','admin\VideoController@videoLessionSingl
 
 route::get('/blog','frontend\BlogController@index');
 route::get('/blog/{slug}/{id}','frontend\BlogController@single');
-route::get('/blog/category/{cat_name}','frontend\BlogController@index');
-route::get('/blog/writer/{username}-{user_id}','frontend\BlogController@index');
+route::get('/category/blog/{cat_name}','frontend\BlogController@category');
+route::get('/blog/writers','frontend\BlogController@authAll');
+route::get('/blog/category','frontend\BlogController@categoryAll');
+route::get('/blog/writer/{username}/{id}','frontend\BlogController@authSingle');
 
 // --------------
 // Admin

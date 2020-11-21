@@ -14,7 +14,7 @@ class BlogController extends Controller
         $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
 
         $blog_cat = DB::table('blog_category')->limit(6)->get();
-        $auth = DB::table('users')->limit(5)->get();
+        $auth = DB::table('users')->where('role','admin')->limit(5)->get();
 
         return view('frontend.blog.Blog',[
             'setting'   =>$setting,
@@ -27,7 +27,7 @@ class BlogController extends Controller
     }
     function single($slug,$id){
         $setting = DB::table('setting')->get();
-        
+
         $blog = DB::table('blog')
             ->join('users','blog.user_id', '=', 'users.id')
             ->select('blog.*','users.photo_url')
@@ -44,7 +44,7 @@ class BlogController extends Controller
             ->get();
 
         $blog_cat = DB::table('blog_category')->limit(6)->get();
-        $auth = DB::table('users')->limit(5)->get();
+        $auth = DB::table('users')->where('role','admin')->limit(5)->get();
 
         return view('frontend.blog.Blog-single',[
             'setting'   =>$setting,
@@ -56,4 +56,64 @@ class BlogController extends Controller
             'adright'   =>$adright,
         ]);
     }
+
+    function categoryAll(){
+        $setting = DB::table('setting')->get();
+        $auth = DB::table('blog_category')->get();
+
+        return view('frontend.blog.Category-all',[
+            'setting'   =>$setting,
+            'auth'      =>$auth
+        ]);
+    }
+    function category($category){
+        $setting = DB::table('setting')->get();
+        $blog = DB::table('blog')->where('cat_id',$category)->orderByDesc('id')->limit(12)->get();
+        $sol_ad = DB::table('solution')->inRandomOrder()->limit(1)->get();
+        $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
+
+        $blog_cat = DB::table('blog_category')->limit(6)->get();
+        $auth = DB::table('users')->where('role','admin')->limit(5)->get();
+
+        return view('frontend.blog.Blog-category',[
+            'setting'   =>$setting,
+            'blog'      =>$blog,
+            'sol_ad'    =>$sol_ad,
+            'train_ad'  =>$train_ad,
+            'blog_cat'  =>$blog_cat,
+            'auth'      =>$auth,
+            'blog_single_cat'=>$category,
+        ]);
+    }
+    function authAll(){
+        $setting = DB::table('setting')->get();
+        $auth = DB::table('users')->where('role','admin')->get();
+
+        return view('frontend.blog.Auth-all',[
+            'setting'   =>$setting,
+            'auth'      =>$auth
+        ]);
+    }
+
+    function authSingle($name,$id){
+        $setting = DB::table('setting')->get();
+        $blog = DB::table('blog')->where('user_id',$id)->orderByDesc('id')->limit(12)->get();
+        $sol_ad = DB::table('solution')->inRandomOrder()->limit(1)->get();
+        $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
+
+        $blog_cat = DB::table('blog_category')->limit(6)->get();
+        $auth = DB::table('users')->where('role','admin')->limit(5)->get();
+
+        return view('frontend.blog.Auth-single',[
+            'setting'   =>$setting,
+            'blog'      =>$blog,
+            'sol_ad'    =>$sol_ad,
+            'train_ad'  =>$train_ad,
+            'blog_cat'  =>$blog_cat,
+            'auth'      =>$auth,
+            'username'=>$name,
+        ]);
+    }
+
+
 }
