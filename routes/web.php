@@ -33,13 +33,13 @@ route::get('/video-lession','admin\VideoController@videoLession');
 route::get('/video-lession/{name}-{id}','admin\VideoController@videoLessionSingle');
 
 // blog
-
 route::get('/blog','frontend\BlogController@index');
 route::get('/blog/{slug}/{id}','frontend\BlogController@single');
 route::get('/category/blog/{cat_name}','frontend\BlogController@category');
 route::get('/blog/writers','frontend\BlogController@authAll');
 route::get('/blog/category','frontend\BlogController@categoryAll');
 route::get('/blog/writer/{username}/{id}','frontend\BlogController@authSingle');
+route::get('/blog/tags/all/{name}','frontend\BlogController@tag');
 
 // --------------
 // Admin

@@ -114,6 +114,25 @@ class BlogController extends Controller
             'username'=>$name,
         ]);
     }
+    function tag($name){
+        $setting = DB::table('setting')->get();
+        $blog = DB::table('blog')->where('tag','like',"%$name%")->orderByDesc('id')->limit(12)->get();
+        $sol_ad = DB::table('solution')->inRandomOrder()->limit(1)->get();
+        $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
+
+        $blog_cat = DB::table('blog_category')->limit(6)->get();
+        $auth = DB::table('users')->where('role','admin')->limit(5)->get();
+
+        return view('frontend.blog.Blog-tag',[
+            'setting'   =>$setting,
+            'blog'      =>$blog,
+            'sol_ad'    =>$sol_ad,
+            'train_ad'  =>$train_ad,
+            'blog_cat'  =>$blog_cat,
+            'auth'      =>$auth,
+            'tag'=>$name,
+        ]);
+    }
 
 
 }

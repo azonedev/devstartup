@@ -48,14 +48,23 @@
 						</div>
 						<article>
 							<p style="max-width: 100%;">{!!$item->blog!!}</p>
-                        </article>
-                        
+						</article>
+						<div class="p-2">
+						<span class="tags h4"><strong>Tags : </strong></span>
+							@php
+								$tag_arr = explode(',',$item->tag);
+							@endphp
+
+							@for ($i = 0; $i < count($tag_arr); $i++)
+								<a href="{{url('blog/tags/all')}}/{{$tag_arr[$i]}}" class="p-2">#{{$tag_arr[$i]}} </a>
+							@endfor
+						</div>
                     </div>
                     @php
                         $sol_id  = $item->solution_ad;
                         $trn_id  = $item->training_ad;
                     @endphp
-                        @endforeach
+                	@endforeach
 					
 				</div>
 			</div>
