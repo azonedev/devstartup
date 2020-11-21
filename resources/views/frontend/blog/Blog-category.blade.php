@@ -59,7 +59,7 @@
 					<div class="writer">
 						<h3 class="sub-head cat-title">Article by writer</h3>
 						@foreach ($auth as $item)
-							<p><a href="{{url('blog/writer')}}/{{$item->name}}-{{$item->id}}">{{$item->name}}</a></p>
+							<p><a href="{{url('blog/writer')}}/{{$item->name}}/{{$item->id}}">{{$item->name}}</a></p>
 						@endforeach
 						<p><a  class="text-danger" href="{{url('/blog/writers')}}">All writers</a></p>
 

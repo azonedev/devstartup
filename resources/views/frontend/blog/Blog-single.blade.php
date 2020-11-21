@@ -50,6 +50,8 @@
 							<p style="max-width: 100%;">{!!$item->blog!!}</p>
 						</article>
 						<div class="p-2">
+						
+						{{-- tags --}}
 						<span class="tags h4"><strong>Tags : </strong></span>
 							@php
 								$tag_arr = explode(',',$item->tag);
@@ -59,6 +61,23 @@
 								<a href="{{url('blog/tags/all')}}/{{$tag_arr[$i]}}" class="p-2">#{{$tag_arr[$i]}} </a>
 							@endfor
 						</div>
+						{{-- / tags --}}
+						
+						{{-- pagination --}}
+						<div class="single-paginate pt-4 tb-4">
+							@forelse ($blog_prev as $pagi_item)
+								<div class="prev float-left"><a href="{{url('blog')}}/{{$pagi_item->slug}}/{{$pagi_item->id}}" class="btn btn-primary" >Previous</a></div>
+							@empty
+								<div class="prev float-left"><a  class="btn btn-danger disabled">Previous</a></div>
+							@endforelse
+							@forelse ($blog_next as $pagi_item)
+								<div class="next float-right btn"><a href="{{url('blog')}}/{{$pagi_item->slug}}/{{$pagi_item->id}}" class="btn btn-primary" >Next</a></div>
+							@empty
+								<div class="next float-right btn"><a  class="btn btn-danger  disabled" >Next</a></div>
+							@endforelse
+
+						</div>
+						{{-- / pagination --}}
                     </div>
                     @php
                         $sol_id  = $item->solution_ad;
@@ -109,22 +128,7 @@
 				</aside>
 
 			</div>
-			<div class="col-lg-9">
-				<div class="p-3"></div>
-				<nav aria-label="Page navigation example">
-				  <ul class="pagination justify-content-end">
-				    <li class="page-item disabled">
-				      <a class="page-link" href="#" tabindex="-1">Previous</a>
-				    </li>
-				    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
-				    <li class="page-item"><a class="page-link" href="#">3</a></li>
-				    <li class="page-item">
-				      <a class="page-link" href="#">Next</a>
-				    </li>
-				  </ul>
-				</nav>
-			</div>	
+			
 		</div>
 	</div>
 	</div>

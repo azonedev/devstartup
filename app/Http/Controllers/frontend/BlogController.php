@@ -33,6 +33,9 @@ class BlogController extends Controller
             ->select('blog.*','users.photo_url')
             ->where('blog.id',$id)->get();
 
+        $blog_next = DB::table('blog')->where('id','>',$id)->limit(1)->get();
+        $blog_prev = DB::table('blog')->where('id','<',$id)->limit(1)->get();
+
         $sol_ad = DB::table('solution')->inRandomOrder()->limit(2)->get();
         $train_ad = DB::table('course')->inRandomOrder()->limit(2)->get();
 
@@ -54,6 +57,8 @@ class BlogController extends Controller
             'blog_cat'  =>$blog_cat,
             'auth'      =>$auth,
             'adright'   =>$adright,
+            'blog_prev'   =>$blog_prev,
+            'blog_next'   =>$blog_next,
         ]);
     }
 
