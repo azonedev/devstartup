@@ -9,7 +9,7 @@ class BlogController extends Controller
 {
     function index(){
         $setting = DB::table('setting')->get();
-        $blog = DB::table('blog')->orderByDesc('id')->limit(12)->get();
+        $blog = DB::table('blog')->orderByDesc('id')->paginate(12);
         $sol_ad = DB::table('solution')->inRandomOrder()->limit(1)->get();
         $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
 
@@ -73,7 +73,7 @@ class BlogController extends Controller
     }
     function category($category){
         $setting = DB::table('setting')->get();
-        $blog = DB::table('blog')->where('cat_id',$category)->orderByDesc('id')->limit(12)->get();
+        $blog = DB::table('blog')->where('cat_id',$category)->orderByDesc('id')->paginate(12);
         $sol_ad = DB::table('solution')->inRandomOrder()->limit(1)->get();
         $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
 
@@ -102,7 +102,7 @@ class BlogController extends Controller
 
     function authSingle($name,$id){
         $setting = DB::table('setting')->get();
-        $blog = DB::table('blog')->where('user_id',$id)->orderByDesc('id')->limit(12)->get();
+        $blog = DB::table('blog')->where('user_id',$id)->orderByDesc('id')->paginate(12);
         $sol_ad = DB::table('solution')->inRandomOrder()->limit(1)->get();
         $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
 
@@ -121,7 +121,7 @@ class BlogController extends Controller
     }
     function tag($name){
         $setting = DB::table('setting')->get();
-        $blog = DB::table('blog')->where('tag','like',"%$name%")->orderByDesc('id')->limit(12)->get();
+        $blog = DB::table('blog')->where('tag','like',"%$name%")->orderByDesc('id')->paginate(12);
         $sol_ad = DB::table('solution')->inRandomOrder()->limit(1)->get();
         $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
 
