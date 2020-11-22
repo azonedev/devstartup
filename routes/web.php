@@ -40,7 +40,7 @@ route::get('/blog/writers','frontend\BlogController@authAll');
 route::get('/blog/category','frontend\BlogController@categoryAll');
 route::get('/blog/writer/{username}/{id}','frontend\BlogController@authSingle');
 route::get('/blog/tags/all/{name}','frontend\BlogController@tag');
-
+route::get('/blog/search','frontend\BlogController@search');
 // --------------
 // Admin
 // --------------

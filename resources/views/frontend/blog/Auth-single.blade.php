@@ -2,12 +2,23 @@
 
 @section('main')
   	<div class="p-5">
+		  <h1 class="text-center">Written by {{$username}}
+					<div class="heading" style="width:120px;"></div>
+		</h1>
 		<div class="row">
 			<div class="col-lg-9 col-md-8 col-sm-6">
-				<h1 class="text-center">Written by {{$username}}
-					<div class="heading" style="width:120px;"></div>
-				</h1>
-				<div class="p-3"></div>
+				
+				<div class="pt-3 pb-3">
+					<div class="search-box text-center">
+						<form action="{{url('blog/search')}}" method="GET">
+							@csrf 
+								  <div class="form-inline">
+									<input type="text" placeholder="Type topic, keyword ..." class="form-control" name="search" id="search-box">
+									<button type="submit" class="btn search-btn"><i class="fa fa-search"></i></button>
+								</div>
+						</form>
+					</div>
+				</div>
 
 				<div class="row">
 					@forelse ($blog as $item)

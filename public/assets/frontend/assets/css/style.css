@@ -452,7 +452,19 @@ background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox=
     padding: 10px 20px;
     border-left: 10px solid #3734f7c4;
 }
-
+#search-box {
+    width: 260px;
+    position: absolute;
+    margin: 0 auto;
+}
+.btn.search-btn {
+    position: relative;
+    left: 225px;
+    border: 1px solid transparent;
+    background: var(--dark);
+    color: var(--white);
+    border-radius: 0px 4px 4px 0px;
+}
 aside p {
     font-size: 20px;
     padding: 0px 0px 5px 8px;
