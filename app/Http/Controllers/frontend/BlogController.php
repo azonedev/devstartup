@@ -140,7 +140,8 @@ class BlogController extends Controller
     }
 
     function search(Request $r){
-                $setting = DB::table('setting')->get();
+        // dd($r->search);
+        $setting = DB::table('setting')->get();
         $blog = DB::table('blog')->where('title','like',"%$r->search%")->orderByDesc('id')->paginate(12);
         $sol_ad = DB::table('solution')->inRandomOrder()->limit(1)->get();
         $train_ad = DB::table('course')->inRandomOrder()->limit(1)->get();
