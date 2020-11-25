@@ -66,9 +66,16 @@
 
 					<div class="p-2"></div>
 					<div class="text-center">
+
+						@if (Session::has('user_id'))
 						<a href="{{url('/enroll-course')}}-{{$courseId}}">
 							<button class="btn secondary-btn">Enroll</button>
 						</a>
+						@else
+						<a href="{{url('/login/enroll-course')}}-{{$courseId}}">
+							<button class="btn secondary-btn">Enroll</button>
+						</a>	
+						@endif
 					</div>
 					<div class="p-2"></div>
 

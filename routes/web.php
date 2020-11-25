@@ -14,7 +14,7 @@ Route::post('/dept/development/save', 'frontend\DevelopmentController@store');
 // frontend - course
 
 Route::get('/all-course', 'frontend\CourseController@index');
-Route::get('/enroll-course-{id}', 'frontend\CourseController@enroll');
+
 Route::post('/enroll-save', 'frontend\CourseController@enrollSave');
 Route::get('/details-course-{id}', 'frontend\CourseController@details');
 
@@ -200,6 +200,6 @@ Route::get('/logout',"user\GeneralUser@logout");
                                                                                         
 // all-user-action
 
-Route::group(['prefix' => 'user','middleware' =>'UserAction'], function () {
-
+Route::group(['middleware' =>'UserAction'], function () {
+    Route::get('/enroll-course-{id}', 'frontend\CourseController@enroll');
 });

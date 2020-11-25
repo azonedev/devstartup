@@ -45,7 +45,12 @@
 					<div class="row">
 						<div class="col-5"><a href="{{url('/details-course')}}-{{$item->id}}"><button class="btn primary-btn">Details</button></a></div>
 						<div class="col-7">
-						<a href="{{url('/enroll-course')}}-{{$item->id}}" class="d-block  float-right"><button class="btn primary-btn btn-danger active">Enroll</button></a>
+						@if (Session::has('user_id'))
+							<a href="{{url('/enroll-course')}}-{{$item->id}}" class="d-block  float-right"><button class="btn primary-btn btn-danger active">Enroll</button></a>
+						@else
+							<a href="{{url('/login/enroll-course')}}-{{$item->id}}" class="d-block  float-right"><button class="btn primary-btn btn-danger active">Enroll</button></a>	
+						@endif
+
 						</div>
 					</div>
 
