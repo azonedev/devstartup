@@ -70,7 +70,22 @@ class CourseController extends Controller
 
         DB::table('dev_message')->insert($enroll);
 
-
+        // course-enrollment
+        $course_en = [];
+        $course_en['user_id'] = $r->user_id;
+        $course_en['name'] = $name;
+        $course_en['course_name'] = $course_name;
+        $course_en['fb_link'] = $fb_link;
+        $course_en['trid'] = $trxid;
+        $course_en['pay_by'] = $payment_by;
+        $course_en['pay_from'] = $payment_number;
+        $course_en['total'] = $r->total;
+        $course_en['due'] = $ammount;
+        $course_en['create_date'] = date('Y-m-d');
+        $course_en['status'] = 'block';
+        
+        DB::table('course_enroll')->insert($course_en);
+        
         $setting = DB::SELECT('SELECT * FROM setting');
         return view('frontend.Enroll-success',
             [

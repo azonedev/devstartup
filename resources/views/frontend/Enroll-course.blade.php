@@ -1,5 +1,4 @@
 @extends('frontend.Frontend-master')
-
 @section('main')
 <hr>
 <div class="p-4"></div>
@@ -23,14 +22,14 @@
                 <form action="{{url('/enroll-save')}}" method="POST">
                     @csrf 
 
-                    <div class="form-group p-2">
-                        <input type="text" name="name" class="form-control" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group p-2">
-                        <input type="email" name="email" class="form-control" placeholder="E-mail [ example@mail.com ] " required>
-                    </div>
-                    <div class="form-group p-2">
-                        <input type="text" name="phone" class="form-control" placeholder="Phone [ +012 345 678 ]" required>
+                    <div class="form-group pt-1">
+                        <input type="hidden" name="name" class="form-control" value="{{Session('username')}}" placeholder="Enter your full name" required>
+
+                        <input type="hidden" name="email" class="form-control" value="{{Session('usermail')}}" placeholder="E-mail [ example@mail.com ] " required>
+
+                        <input type="hidden" name="phone" class="form-control" value="{{Session('mobile_no')}}" placeholder="Phone [ +012 345 678 ]" required>
+
+                        <input type="hidden" name="user_id" class="form-control" value="{{Session('user_id')}}" placeholder="Phone [ +012 345 678 ]" required>
                     </div>
                     <div class="form-group p-2">
                         <input type="text" name="payment" class="form-control" placeholder="Payment mobile number" required>
@@ -51,6 +50,7 @@
                     
                     <div class="form-group p-2">
                         <input type="text" name="ammount" class="form-control" value="{{$ammount}}">
+                        <input type="hidden" name="total" class="form-control" value="{{$ammount}}">
                     </div>
                     
                     <div class="form-group p-2">
