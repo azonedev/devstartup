@@ -1,6 +1,12 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
-            <a class="navbar-brand" title="adDev is a azOneDev product" href="#">azOneDev</a>
+            <a class="navbar-brand" title="mamurjor is a azOneDev product" href="{{url('/')}}" target="_blank">
+                @if (Session('role')=='admin')
+                    azOneDev
+                @else
+                    Mamurjor
+                @endif
+            </a>
         </div>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,7 +18,7 @@
 
         <!-- Top Navigation: Left Menu -->
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="{{url('/')}}" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
+            <li><a href="{{url('/')}}" title="Visit Home Page" target="_blank"><i class="fa fa-home fa-fw"></i> Website</a></li>
         </ul>
 
         <!-- Top Navigation: Right Menu -->
@@ -70,6 +76,8 @@
                                 </span> --}}
                         </div>
                     </li>
+@if (Session('role')=='admin')
+{{--admin panel's sidebar --}}
                     <li>
                         <a href="{{url('/admin')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -186,6 +194,7 @@
                     </li>
 
 
+
                     {{-- <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -202,6 +211,32 @@
                             </li>
                         </ul>
                     </li> --}}
+
+
+{{-- end of admin panel's sidebar --}}
+
+@else 
+{{-- all sidebar is use for student  panel --}}
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#">Second Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="#">Third Level Item</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+{{-- / all sidebar is use for student  panel --}}
+@endif
                 </ul>
 
             </div>

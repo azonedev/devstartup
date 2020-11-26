@@ -203,5 +203,5 @@ Route::get('/logout',"user\GeneralUser@logout");
 Route::group(['middleware' =>'UserAction'], function () {
     Route::get('/enroll-course-{id}', 'frontend\CourseController@enroll');
 
-    // Route::get('/profile', 'frontend\user\ProfileController@enroll');
+    Route::get('/profile', 'frontend\user\ProfileController@index');
 });
