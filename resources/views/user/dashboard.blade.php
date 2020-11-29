@@ -4,17 +4,15 @@
 
 @section('main-content')
 {{-- dashboard for admin panel --}}
-
-                    <div class="alert alert-danger" role="alert">
-                      <h4 class="alert-heading">Verify email !!</h4>
-                      <p> Please verify your mail as soon as possible :)</p>
-                      <p class="mb-0">For support : 01746 686868</p>
-                    </div>
+                    @if(Session::has('enroll'))
+                        
                     <div class="alert alert-success" role="alert">
                       <h4 class="alert-heading">Successfully enrolled</h4>
                       <p> </p>
-                      <p class="mb-0">Course Name is successfully enrolled but it takes some time to aprove, So please wait. If is emergency call : 01746 68 68 68</p>
+                      <p class="mb-0">{{Session('enroll')}}</p>
                     </div>
+                    @endif
+
                         <!-- /.row -->
                     <div class="row">
                         <div class="col-lg-3 col-md-6">

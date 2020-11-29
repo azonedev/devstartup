@@ -10,4 +10,7 @@ class ProfileController extends Controller
     function index(){
         return view('user.dashboard');
     }
+    function notVerified(){
+        return view('user.error_dashboard');
+    }
 }

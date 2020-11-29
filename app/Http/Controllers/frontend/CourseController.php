@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Session;
 class CourseController extends Controller
 {
     public function index(){
@@ -86,11 +87,9 @@ class CourseController extends Controller
         
         DB::table('course_enroll')->insert($course_en);
         
-        $setting = DB::SELECT('SELECT * FROM setting');
-        return view('frontend.Enroll-success',
-            [
-                'setting' =>$setting
-            ]);
+        Session::flash('enroll',"$course_name is successfully enrolled but it takes some time to aprove, So please wait. If is emergency call : 01746 68 68 68");
+        
+        return redirect('/profile');
     }
 
     public function details($id){

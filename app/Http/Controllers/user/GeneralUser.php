@@ -24,36 +24,86 @@ class GeneralUser extends Controller
         $password = $r->password;
         $url = $r->url;
         $img = $r->img;
-        if($img !=NULL){
-            $image_name = time().'.'.$img->getClientOriginalExtension();
-            $path = public_path('asstes/app-images');
-            $img->move($path,$image_name);
-            $photo ='asstes/app-images/'.$image_name;
-                    $image = $r->file('feature_image');
+
+       $check_email = DB::table('users')->where('email', $email)->pluck('email');
+
+        if(count($check_email)>0){
+
+            Session::flash('msg','Your mail is already used !!');
+
+            if($url!="0"){
+                $re_url = "/register/".$url;
+                return redirect($re_url);
+            }else{
+                return redirect('register');
+
+            }
         }
-        DB::INSERT("INSERT INTO users (
-                name,
-                email,
-                mobile_no,
-                password,
-                photo_url
-            )
-            VALUES(?,?,?,?,?)",
-            [
-                $name,
-                $email,
-                $mobile_no,
-                $password,
-                $photo
-            ]
-        );
-        
-        Session::flash('msg','Register successfully ! Please login');
-        
-        if($url!=0){
-            return redirect("/login/$url");
-        }else{
-            return redirect('/login');
+        else{
+            if($img !=NULL){
+                $image_name = time().'.'.$img->getClientOriginalExtension();
+                $path = public_path('asstes/app-images');
+                $img->move($path,$image_name);
+                $photo ='asstes/app-images/'.$image_name;
+                        $image = $r->file('feature_image');
+            }
+            DB::INSERT("INSERT INTO users (
+                    name,
+                    email,
+                    mobile_no,
+                    password,
+                    photo_url
+                )
+                VALUES(?,?,?,?,?)",
+                [
+                    $name,
+                    $email,
+                    $mobile_no,
+                    $password,
+                    $photo
+                ]
+            );
+            // end of reigster
+            // start login 
+
+            $redirect_url = $url;
+
+            $check_user_data = DB::SELECT('SELECT * FROM users
+                                        WHERE email=? AND password =?
+                                        ',
+                                        [
+                                            $email,
+                                            $password
+                                        ]
+                                    );
+                if(count($check_user_data)>0){
+                    foreach ($check_user_data as $value) {
+
+                        $user_id = $value->id;
+                        $usermail = $value->email;
+                        $username = $value->name;
+                        $mobile_no = $value->mobile_no;
+                        $role = $value->role;
+                        $note = $value->note;
+
+                        Session::put('user_id',$user_id);
+                        Session::put('usermail',$usermail);
+                        Session::put('username',$username);
+                        Session::put('mobile_no',$mobile_no);
+                        Session::put('role',$role);
+                        Session::put('status',$note);
+
+                        Session::flash('msg', 'Login Success');
+                        
+                        if(!$redirect_url==0){
+                            return redirect("/$redirect_url");
+                        }else if($role=="admin"){
+                            return redirect('/admin');
+                        }else{
+                            return redirect('/profile');
+                        }
+                    }
+                }
         }
     }
 
@@ -106,7 +156,7 @@ class GeneralUser extends Controller
                     }else if($role=="admin"){
                         return redirect('/admin');
                     }else{
-                        return redirect('/');
+                        return redirect('/profile');
                     }
                 }
             }else{

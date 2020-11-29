@@ -58,7 +58,7 @@
                                 </fieldset>
 							</form>
 							<br>
-							<p class="text-center"><a href="{{url('/register')}}">Create an Account</a></p>
+							<p class="text-center"><a href="{{url('/register')}}/{{$re_url}}">Create an Account</a></p>
                         </div>
                     </div>
                 </div>

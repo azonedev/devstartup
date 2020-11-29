@@ -191,7 +191,7 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
 
 // user login & reg
 
-Route::get('/register',"user\GeneralUser@index");
+Route::get('/register/{url?}',"user\GeneralUser@index");
 Route::post('/register/save',"user\GeneralUser@store");
 
 Route::get('/login/{url?}',"user\GeneralUser@showLogin");
@@ -204,4 +204,6 @@ Route::group(['middleware' =>'UserAction'], function () {
     Route::get('/enroll-course-{id}', 'frontend\CourseController@enroll');
 
     Route::get('/profile', 'frontend\user\ProfileController@index');
+    
 });
+Route::get('/profile/not_verified', 'frontend\user\ProfileController@notVerified');
