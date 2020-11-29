@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 use Illuminate\Support\Facades\Session;
 use Closure;
 use Illuminate\Support\Facades\Route;
+use DB;
 class UserAction
 {
     /**
@@ -19,11 +20,16 @@ class UserAction
     {
         $user_id = $request->session()->get('user_id');
         
-        if($user_id!=NULL){
+        $user = DB::table('users')->where('id',$user_id)->pluck('verify_status');
+        if($user_id!=NULL && $user == '["verified"]'){
             return $next($request);
         }else{
-            $request->session()->flash('msg', "You are not logged in (: Please login and just go ...");
-            return redirect('/login');
+            if(empty($user_id)){
+                $request->session()->flash('msg', "You are not logged in, Please login and just go ...");
+                return redirect('/login');
+            }else{
+                return redirect('/profile/not_verified');
+            }
         }
     }
 }
