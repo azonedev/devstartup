@@ -139,6 +139,9 @@ Route::group(['prefix'=>'admin', 'middleware' =>'AdminAction'],function (){
         Route::post('/video-lession/archrive/{id}','admin\VideoController@destroy');
 
         // student-management
+        Route::get('student','admin\StudentManageController@index');
+        Route::post('/student/assign/{id}','admin\StudentManageController@assign');
+        Route::post('/student/delete/{id}','admin\StudentManageController@destroy');
 
         // blog category
         Route::post('/blog-cat/save','admin\BlogController@catSave');

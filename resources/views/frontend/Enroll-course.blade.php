@@ -9,6 +9,7 @@
                     $coursename = $item->name;
                     $feature_image = $item->feature_image;
                     $ammount = $item->course_fee;
+                    $course_id = $item->id;
                 @endphp
             @endforeach
             <div class="col-lg-6 col-md-6 p-2">
@@ -23,13 +24,14 @@
                     @csrf 
 
                     <div class="form-group pt-1">
-                        <input type="hidden" name="name" class="form-control" value="{{Session('username')}}" placeholder="Enter your full name" required>
+                        <input type="hidden" name="name" class="form-control" value="{{Session('username')}}" required>
 
-                        <input type="hidden" name="email" class="form-control" value="{{Session('usermail')}}" placeholder="E-mail [ example@mail.com ] " required>
+                        <input type="hidden" name="email" class="form-control" value="{{Session('usermail')}}"  required>
 
-                        <input type="hidden" name="phone" class="form-control" value="{{Session('mobile_no')}}" placeholder="Phone [ +012 345 678 ]" required>
+                        <input type="hidden" name="phone" class="form-control" value="{{Session('mobile_no')}}" required>
 
                         <input type="hidden" name="user_id" class="form-control" value="{{Session('user_id')}}" placeholder="Phone [ +012 345 678 ]" required>
+                        <input type="hidden" name="course_id" class="form-control" value="{{$course_id}}"  required>
                     </div>
                     <div class="form-group p-2">
                         <input type="text" name="payment" class="form-control" placeholder="Payment mobile number" required>

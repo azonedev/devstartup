@@ -73,7 +73,9 @@ class CourseController extends Controller
 
         // course-enrollment
         $course_en = [];
+        $course_en['course_id'] = $r->course_id;
         $course_en['user_id'] = $r->user_id;
+        $course_en['message_id'] = DB::table('dev_message')->get()->last()->id; 
         $course_en['name'] = $name;
         $course_en['course_name'] = $course_name;
         $course_en['fb_link'] = $fb_link;
@@ -87,8 +89,10 @@ class CourseController extends Controller
         
         DB::table('course_enroll')->insert($course_en);
         
+        // DB::table('')
+
         Session::flash('enroll',"$course_name is successfully enrolled but it takes some time to aprove, So please wait. If is emergency call : 01746 68 68 68");
-        
+         
         return redirect('/profile');
     }
 

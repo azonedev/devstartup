@@ -1,6 +1,6 @@
 @extends('admin.admin-master')
 
-@section('page-title','Customers')
+@section('page-title','Students')
  @section('main-content')
                        <div class="row">
                         <div class="col-lg-12">
@@ -19,6 +19,7 @@
                                                     <th>Profile Picture</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
+                                                    <th>Status</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -31,6 +32,7 @@
                                                             <td><img src='{{asset("$item->photo_url")}}' width="60px" alt=""></td>
                                                             <td>{{$item->email}}</td>
                                                             <td>{{$item->mobile_no}}</td>
+                                                            <td>{{$item->verify_status}}</td>
                                                             <td>
                                                                  <a href="{{url('/admin/admin-list/edit')}}/{{$item->id}}">
                                                                 <i class="fa fa-edit"></i>

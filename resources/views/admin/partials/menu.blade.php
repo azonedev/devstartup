@@ -153,7 +153,7 @@
                     </li>
                     
                      <li>
-                        <a href="{{url('#')}}"><i class="fa fa-graduation-cap"></i> Student Management</a>
+                        <a href="{{url('admin/student')}}"><i class="fa fa-graduation-cap"></i> Student Management</a>
                     </li>
                      <li>
                         <a href="{{url('admin/blog')}}"><i class="fa fa-newspaper-o"></i> Blog</a>
@@ -174,7 +174,7 @@
                                 <a href="{{url('admin/add-new')}}"><i class="fa fa-plus"></i> Admin Add</a>
                             </li>
                             <li>
-                                <a href="{{url('admin/user-list')}}"><i class="fa fa-user"></i> Customers</a>
+                                <a href="{{url('admin/user-list')}}"><i class="fa fa-user"></i> Student</a>
                             </li>
                         </ul>
                     </li>
