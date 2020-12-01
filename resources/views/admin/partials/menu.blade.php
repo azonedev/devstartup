@@ -60,7 +60,6 @@
                 </ul>
             </li>
         </ul>
-
         <!-- Sidebar -->
         <div class="navbar-default sidebar" role="navigation" style="overflow-y: scroll;">
             <div class="sidebar-nav navbar-collapse">
@@ -76,8 +75,6 @@
                                 </span> --}}
                         </div>
                     </li>
-@if (Session('role')=='admin')
-{{--admin panel's sidebar --}}
                     <li>
                         <a href="{{url('/admin')}}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
@@ -211,34 +208,9 @@
                             </li>
                         </ul>
                     </li> --}}
-
-
-{{-- end of admin panel's sidebar --}}
-
-@else 
-{{-- all sidebar is use for student  panel --}}
-
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-
-{{-- / all sidebar is use for student  panel --}}
-@endif
                 </ul>
 
             </div>
         </div>
+
     </nav>

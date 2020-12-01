@@ -207,6 +207,7 @@ Route::group(['middleware' =>'UserAction'], function () {
     Route::get('/enroll-course-{id}', 'frontend\CourseController@enroll');
 
     Route::get('/profile', 'frontend\user\ProfileController@index');
+    Route::get('/profile-setting', 'frontend\user\ProfileController@setting');
     
 });
 Route::get('/profile/not_verified', 'frontend\user\ProfileController@notVerified');
