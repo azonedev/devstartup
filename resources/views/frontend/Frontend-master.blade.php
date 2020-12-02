@@ -8,6 +8,8 @@
     
     @include('frontend.partials.css-links')
 
+        <link rel="stylesheet" href="{{asset('/assets/lity/lity.min.css')}}">
+
     <style>
         @include('frontend.css');
     </style>
@@ -67,5 +69,8 @@
         });
     </script>
     {{-- / only for home page --}}
+
+    <script src="{{asset('/assets/lity/lity.min.js')}}"></script>
+
 </body>
 </html>

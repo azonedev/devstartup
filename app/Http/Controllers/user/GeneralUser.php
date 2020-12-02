@@ -95,7 +95,7 @@ class GeneralUser extends Controller
 
                         Session::flash('msg', 'Login Success');
                         
-                        if(!$redirect_url==0){
+                        if($redirect_url!="0"){
                             return redirect("/$redirect_url");
                         }else if($role=="admin"){
                             return redirect('/admin');
@@ -151,7 +151,8 @@ class GeneralUser extends Controller
 
                     Session::flash('msg', 'Login Success');
                     
-                    if(!$redirect_url==0){
+                    
+                    if($redirect_url!="0"){
                         return redirect("/$redirect_url");
                     }else if($role=="admin"){
                         return redirect('/admin');

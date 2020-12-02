@@ -10,7 +10,7 @@
 								<p>{{$moto}}</p>
 								<i class="fa fa-home"></i><a href="{{$google_map}}" class="a-white" data-lity> {{$address}}</a>
 								<br>
-								<i class="fa fa-phone"></i><a href="tel:123-456-7890" class="a-white"> {{$phone}}</a>
+								<i class="fa fa-phone"></i><a href="tel:{{$phone}}" class="a-white"> {{$phone}}</a>
 								<br>
 								<i class="fa fa-envelope"></i><a href="mailto:{{$mail}}" class="a-white"> {{$mail}}</a>
 								<br>
@@ -58,7 +58,8 @@
 								<a href="#technologies"><p>Technologies</p></a>
 
 								<a href="{{url('/video-lession')}}"><p>Our Free Lession</p></a>
-								
+								<a href="{{url('/blog')}}" onclick="closeNav()">Blog</a>
+					  			<a href="{{url('/login')}}" onclick="closeNav()">Login</a>
 								
 								<a href="" data-toggle="modal" data-target="#exampleModal"><p>Check / Download Certificate</p></a>
 

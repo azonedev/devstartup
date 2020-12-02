@@ -25,7 +25,7 @@ class UserAction
             return $next($request);
         }else{
             if(empty($user_id)){
-                $request->session()->flash('msg', "You are not logged in, Please login and just go ...");
+                Session::flash('msg', "You are not logged in, Please login and just go ...");
                 return redirect('/login');
             }else{
                 return redirect('/profile/not_verified');

@@ -22,6 +22,8 @@
 					  		<a href="#our-solutions" onclick="closeNav()">Our Solutions</a>
 					  		<a href="#team" onclick="closeNav()">Our Team</a>
 					  		<a href="#technologies" onclick="closeNav()">Technologies</a>
+					  		<a href="{{url('/blog')}}" onclick="closeNav()">Blog</a>
+					  		<a href="{{url('/login')}}" onclick="closeNav()">Login</a>
 							<a href="" data-toggle="modal" data-target="#exampleModal" onclick="closeNav()"><p>Check / Download Certificate</p></a>
 						 
 					  @else
@@ -31,6 +33,8 @@
 					  		<a href="{{url('/home-single-solution')}}" onclick="closeNav()">Our Solutions</a>
 					  		<a href="{{url('/home-single-team')}}" onclick="closeNav()">Our Team</a>
 							<a href="{{url('/home-single-tech')}}" onclick="closeNav()">Technologies</a>
+					  		<a href="{{url('/blog')}}" onclick="closeNav()">Blog</a>
+					  		<a href="{{url('/login')}}" onclick="closeNav()">Login</a>
 							<a href="" data-toggle="modal" data-target="#exampleModal" onclick="closeNav()"><p>Check / Download Certificate</p></a>
 					  @endif
 					</div>
