@@ -42,7 +42,7 @@
 						@foreach ($sol_ad as $item)
 							
 						<a href="{{url('/solution')}}/{{$item->name}}-{{$item->id}}">
-							<img src={{asset("$item->img")}} width="100%" alt="">
+							<img src='{{asset("$item->img")}}' width="100%" alt="">
 						</a>
 						@endforeach
 					</div>
@@ -60,7 +60,7 @@
 					<div class="box">
 						@foreach ($train_ad as $item)
 							<a href="{{url('details-course')}}-{{$item->id}}">
-								<img src={{asset("$item->feature_image")}} width="100%" alt="">
+								<img src='{{asset("$item->feature_image")}}' width="100%" alt="">
 							</a>
 						@endforeach
 					</div>

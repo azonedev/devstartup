@@ -209,6 +209,8 @@ Route::group(['middleware' =>'UserAction'], function () {
     Route::get('/profile', 'frontend\user\ProfileController@index');
     Route::get('/profile-setting', 'frontend\user\ProfileController@setting');
     Route::post('/profile-update/{id}', 'frontend\user\ProfileController@settingUpdate');
+    Route::post('/proflie/lession/{id}', 'frontend\user\ProfileController@lession');
+    Route::post('/payment/partial/{id}', 'frontend\user\ProfileController@partialPay');
     
 });
 Route::get('/profile/not_verified', 'frontend\user\ProfileController@notVerified');

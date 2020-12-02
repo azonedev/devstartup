@@ -119,7 +119,7 @@ class VideoController extends Controller
         $setting = DB::table('setting')->get();
         $videolession = DB::table('video_lession')
             ->where('video_cat_id',$id)
-            ->get();
+            ->paginate(12);
 
         return view('frontend.Lession',['setting'=>$setting,'videolession'=>$videolession,'name'=>$name]);
     }

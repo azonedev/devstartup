@@ -22,9 +22,18 @@ class ProfileController extends Controller
         		'allCourse' =>$allCourse
         	]
         );
-
-
     }
+
+    function lession(Request $r,$id){
+    	$coursename = DB::table('course')->where('id',$id)->value('name');
+    	$lession = DB::table('video_lession')->whereJsonContains('course_id', $id)->paginate(12);
+
+    	return view('user.lession',[
+    		'lession'=>$lession,
+    		'coursename'=>$coursename
+    	]);	
+    }
+
     function setting(){
     	$profileData = DB::table('users')->where('id',Session('user_id'))->get();
     	return view('user.profile-setting',[
@@ -51,6 +60,53 @@ class ProfileController extends Controller
 		DB::table('users')->where('id',$id)->update($update);
     	return redirect('/profile')->with('msg','Your profile data updated successfully !');
     }
+
+    function partialPay(Request $r,$id){
+        $enroll = [];
+
+        $enroll['name'] = $name = Session('username');
+        $enroll['mobile'] = $mobile = Session('mobile_no');
+        $enroll['email'] = $email = Session('usermail');
+
+        $payment_number = $r->payment_no;
+        $trxid = $r->trxid;
+        $payment_by = $r->input('payment_by');
+        $course_name = $r->input('course_name');
+        $ammount = $r->input('ammount');
+
+        $enroll['project_type'] = " $name partial payment for $course_name paid $ammount tk by $payment_by";
+
+        $enroll['details'] = "
+            <h2 class='text-center'>Partial Payment</h2>
+            <br>
+            Student name : $name
+            <br>
+            E-mail : $email
+            <br>
+            Mobile no : $mobile
+            <br>
+            Course Name : $course_name
+            <br>
+            Ammount : <span class='text-danger'>$ammount</span>
+            <br>
+            TrnxID : <span class='text-danger'>$trxid</span>
+            <br>
+            Pamyent by : <span class='text-danger'>$payment_by</span>
+             <br>
+            
+
+        ";
+
+        DB::table('dev_message')->insert($enroll);
+
+        $due= $r->due;
+        $update = [];
+        $update['due'] = $due + $ammount;
+        DB::table('course_enroll')->where('id',$id)->update($update);
+
+        return redirect()->back()->with('msg',"Partial payment successfully !");
+    }
+
     function notVerified(){
         return view('user.error_dashboard');
     }
