@@ -30,6 +30,7 @@ class UserAction
             }else{
                 return redirect('/profile/not_verified');
             }
+            
         }
     }
 }
