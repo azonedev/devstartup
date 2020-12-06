@@ -214,3 +214,7 @@ Route::group(['middleware' =>'UserAction'], function () {
     
 });
 Route::get('/profile/not_verified', 'frontend\user\ProfileController@notVerified');
+
+
+
+Route::get('sendmail','SendMail@index');
