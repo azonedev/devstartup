@@ -58,8 +58,14 @@
 								<a href="#technologies"><p>Technologies</p></a>
 
 								<a href="{{url('/video-lession')}}"><p>Our Free Lession</p></a>
-								<a href="{{url('/blog')}}" onclick="closeNav()">Blog</a>
-					  			<a href="{{url('/login')}}" onclick="closeNav()">Login</a>
+
+								<a href="{{url('/blog')}}" onclick="closeNav()"><p>Blog</p></a>
+
+						  		@if(Session::has('user_id'))
+						  			<a href="{{url('/profile')}}" onclick="closeNav()"><p>My Account</p></a>
+						  		@else
+						  			<a href="{{url('/login')}}" onclick="closeNav()"><p>Login</p></a>
+						  		@endif
 								
 								<a href="" data-toggle="modal" data-target="#exampleModal"><p>Check / Download Certificate</p></a>
 

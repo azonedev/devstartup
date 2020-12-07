@@ -23,7 +23,11 @@
 					  		<a href="#team" onclick="closeNav()">Our Team</a>
 					  		<a href="#technologies" onclick="closeNav()">Technologies</a>
 					  		<a href="{{url('/blog')}}" onclick="closeNav()">Blog</a>
-					  		<a href="{{url('/login')}}" onclick="closeNav()">Login</a>
+					  		@if(Session::has('user_id'))
+					  			<a href="{{url('/profile')}}" onclick="closeNav()">My Account</a>
+					  		@else
+					  			<a href="{{url('/login')}}" onclick="closeNav()">Login</a>
+					  		@endif
 							<a href="" data-toggle="modal" data-target="#exampleModal" onclick="closeNav()"><p>Check / Download Certificate</p></a>
 						 
 					  @else
@@ -34,7 +38,11 @@
 					  		<a href="{{url('/home-single-team')}}" onclick="closeNav()">Our Team</a>
 							<a href="{{url('/home-single-tech')}}" onclick="closeNav()">Technologies</a>
 					  		<a href="{{url('/blog')}}" onclick="closeNav()">Blog</a>
-					  		<a href="{{url('/login')}}" onclick="closeNav()">Login</a>
+					  		@if(Session::has('user_id'))
+					  			<a href="{{url('/profile')}}" onclick="closeNav()">My Account</a>
+					  		@else
+					  			<a href="{{url('/login')}}" onclick="closeNav()">Login</a>
+					  		@endif
 							<a href="" data-toggle="modal" data-target="#exampleModal" onclick="closeNav()"><p>Check / Download Certificate</p></a>
 					  @endif
 					</div>
