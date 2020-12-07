@@ -215,6 +215,10 @@ Route::group(['middleware' =>'UserAction'], function () {
 });
 Route::get('/profile/not_verified', 'frontend\user\ProfileController@notVerified');
 
+// Route::get('/profile/not_verified', 'frontend\user\ProfileController@');
 
-
-Route::get('sendmail','SendMail@index');
+// MailController
+// Resend Mail
+Route::post('/mail/resend','MailController@resend');
+Route::get('/email/verify/{id}/{token}','MailController@verify');
+// Route::get('sendmail','SendMail@index');

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use DB;
-
+use Mail;
 class GeneralUser extends Controller
 {
 
@@ -24,8 +24,9 @@ class GeneralUser extends Controller
         $password = $r->password;
         $url = $r->url;
         $img = $r->img;
+        $token = $r->_token;
 
-       $check_email = DB::table('users')->where('email', $email)->pluck('email');
+        $check_email = DB::table('users')->where('email', $email)->pluck('email');
 
         if(count($check_email)>0){
 
@@ -40,30 +41,50 @@ class GeneralUser extends Controller
             }
         }
         else{
+
+            // register process start here...
+
             if($img !=NULL){
                 $image_name = time().'.'.$img->getClientOriginalExtension();
-                $path = public_path('asstes/app-images');
+                $path = public_path('../asstes/app-images');
                 $img->move($path,$image_name);
                 $photo ='asstes/app-images/'.$image_name;
                         $image = $r->file('feature_image');
             }
+
             DB::INSERT("INSERT INTO users (
                     name,
                     email,
                     mobile_no,
                     password,
-                    photo_url
+                    photo_url,
+                    token
                 )
-                VALUES(?,?,?,?,?)",
+                VALUES(?,?,?,?,?,?)",
                 [
                     $name,
                     $email,
                     $mobile_no,
                     $password,
-                    $photo
+                    $photo,
+                    $token
                 ]
             );
             // end of reigster
+            // send mail
+            
+               $user_id = DB::table('users')->where('email', $email)->value('id');
+
+                $data = array('name'=>$name,'user_id'=>$user_id,'token'=>$token);
+
+                $user = array('email'=>$email,'name'=>$name);
+
+                Mail::send('mail', $data, function($message) use ($user)  {
+                    $message->to($user['email'], $user['name'])->subject
+                        ('user authentication');
+                    $message->from('info@mamurjor.com','mamurjor');
+                });
+
             // start login 
 
             $redirect_url = $url;
