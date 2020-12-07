@@ -117,6 +117,9 @@ class GeneralUser extends Controller
                         Session::flash('msg', 'Login Success');
                         
                         if($redirect_url!="0"){
+                            
+                            Session::put('url',$url);//this session is use to redirect after verify 
+
                             return redirect("/$redirect_url");
                         }else if($role=="admin"){
                             return redirect('/admin');

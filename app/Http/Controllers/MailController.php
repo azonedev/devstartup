@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Mail;
+use Session;
 class MailController extends Controller
 {
     function resend(Request $r)
@@ -37,7 +38,7 @@ class MailController extends Controller
     		DB::table('users')->where('id',$id)->update(['verify_status'=>'verified']);
 
     		if(Session::has('url')){
-
+    			return redirect(Session('url'));
     		}else{
     			return redirect('/profile')->with('msg','Your account activation success !');
     		}
